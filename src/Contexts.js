@@ -10,9 +10,13 @@ function changeTheme(state,action){
 }
 
 function ThemeProvider({children}){
-    const theme = window.localStorage.getItem("theme");
-    if(theme === null)
-        window.localStorage.setItem("theme","light")
+    const isBrowser = typeof window !== "undefined";
+    let theme = 'light';
+    if(isBrowser){
+        theme = window.localStorage.getItem("theme");
+        if(theme === null)
+            window.localStorage.setItem("theme","light")
+    }
     const [state, dispatch] = React.useReducer(changeTheme,{theme:theme === null ? 'light':theme});
     return(
         <themeStateContext.Provider value={state}>

@@ -15,7 +15,6 @@ const GlobalStyle = createGlobalStyle`
     height:200%;
   }
 `
-
 const mainStyle = {
   // border: '1px solid black' 
   height:'200%',
