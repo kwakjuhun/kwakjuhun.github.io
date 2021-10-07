@@ -20,14 +20,14 @@ export default theme;
 
 export const dark ={
     colors:{
-        titleColor : '#121212',
-        bgColor: '#b8b8b8',
+        titleColor : '#F5EAEA',
+        bgColor: '#4D4D4D',
     }
 }
 
 export const light ={
     colors:{
-        titleColor : '#b8b8b8',
-        bgColor: '#121212',
+        titleColor : '#4D4D4D',
+        bgColor: '#F5EAEA',
     }
 }

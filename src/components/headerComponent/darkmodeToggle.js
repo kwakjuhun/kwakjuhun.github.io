@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import { useThemeChange, useThemeState } from '../../Contexts';
+import { useThemeChange, useThemeState } from '../../providers/themeContext';
 const Toggle = styled.label`
   position: absolute;
   top:10px;
@@ -48,33 +48,12 @@ const Checkbox = styled.input`
     transform: translateX(26px);
   }
 `;
-const Aaaa = styled.div`
-  width : 100px;
-  height : 100px;
-  // background:${(props) => props.theme.colors.bgColor};
-`;
 
 const DarkmodeToggle = () => {
-  const themeChangeFunc = useThemeChange();
-  const themeMode = useThemeState().theme;
-  console.log(themeMode)
-  const darkmode = (e) =>{
-
-  }
-  //   const state = !isDarkmode
-  //   setIsDarkmode(state)
-  //   e.checked = state
-
-  // useEffect(() => {
-
-  // }, [isDarkmode]);
-
   return (
     <Toggle>
-      {/* <Checkbox type="checkbox" defaultChecked={isDarkmode} onClick={darkmode}></Checkbox> */}
-      <Checkbox type="checkbox" defaultChecked={themeMode === 'light'? false:true} onClick={()=>themeChangeFunc()}></Checkbox>
+      <Checkbox type="checkbox" checked={useThemeState()} onChange={useThemeChange({type:"change"})}></Checkbox>
       <Slider></Slider>
-      <Aaaa></Aaaa>
     </Toggle>
   )
 }

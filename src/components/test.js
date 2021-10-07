@@ -1,19 +1,24 @@
 import React, { useState } from "react";
-import styled, { ThemeProvider } from "styled-components";
-import { useThemeState } from "../Contexts";
+import styled, { ThemeConsumer } from "styled-components";
+import { useThemeState } from "../providers/themeContext";
+
 const TestComponent = styled.div`
   width : 1000px;
   height : 1009px;
-  background:${(theme) => theme.theme == 'light'? 'white' : 'black'};
+  // background: black;
+  background:${(props) => props.theme.colors.bgColor};
 `;
 
 const Test = () => {
-
-  const theme = useThemeState().theme;
-  // console.log("dd", theme)
-   return (
-    <TestComponent theme={theme}></TestComponent>
-   )
+  const theme = useThemeState();
+  // console.log("dd", props)
+  return (
+  // <TestComponent theme={theme}></TestComponent>
+  <>
+    <TestComponent></TestComponent>
+    <TestComponent></TestComponent>
+  </>
+  )
 };
 
 export default Test;
