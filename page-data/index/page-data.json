@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-index-js",
     "path": "/",
-    "result": {"pageContext":{}},
+    "result": {"data":{"site":{"siteMetadata":{"title":"A_Z Blog"}},"allMdx":{"edges":[{"node":{"frontmatter":{"title":"second test md file"}}},{"node":{"frontmatter":{"title":"first test md file"}}}],"totalCount":2}},"pageContext":{}},
     "staticQueryHashes": []}
