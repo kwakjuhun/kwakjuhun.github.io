@@ -1,6 +1,6 @@
 {
     "componentChunkName": "component---src-pages-index-js",
     "path": "/",
-    "result": {"data":{"site":{"siteMetadata":{"title":"A_Z Blog"}},"allMdx":{"edges":[{"node":{"frontmatter":{"title":"first test md file"},"id":"4bcb32f7-157c-5e4b-b07e-017a9686c0a6"}},{"node":{"frontmatter":{"title":"second test md file"},"id":"f35f6943-3cc8-5470-9f0d-09a721b0fde4"}}],"totalCount":2}},"pageContext":{"matchPath":"/*"}},
+    "result": {"data":{"allMdx":{"group":[{"fieldValue":"Algorithm","totalCount":1},{"fieldValue":"Blog","totalCount":1}],"edges":[{"node":{"excerpt":"My first MDX post 1. TEST Hi Hi ~~","frontmatter":{"category":"Algorithm","title":"first test md file"}}},{"node":{"excerpt":"1. TEST Hi Hi ~~","frontmatter":{"category":"Blog","title":"second test md file"}}}]}},"pageContext":{"matchPath":"/*"}},
     "staticQueryHashes": [],
     "matchPath": "/*"}
