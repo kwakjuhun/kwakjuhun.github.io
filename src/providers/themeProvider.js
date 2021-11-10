@@ -1,12 +1,14 @@
 import React, {useState} from "react"
-import { ThemeProvider } from 'styled-components';
-import { useThemeState, useThemeChange } from './themeContext';
-import theme, {dark, light } from "../styles/theme";
+import { ThemeProvider, css } from 'styled-components';
+import { useThemeState } from './themeContext';
+import {dark, light, widthSize } from "../styles/theme";
 
 const Theme = ({children}) => {
-    console.log("theme Provider",useThemeState());
+    let theme = {}
+    theme['colors'] = useThemeState() ? dark:light;
+    theme['size'] = widthSize;
     return (
-        <ThemeProvider theme={useThemeState()? dark:light} size={theme}>
+        <ThemeProvider theme={theme}>
             {children}
         </ThemeProvider>
     )

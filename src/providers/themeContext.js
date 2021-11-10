@@ -17,10 +17,10 @@ function SelectThemeProvider({children}){
         let theme = false;
         if(isBrowser){
             theme = window.sessionStorage.getItem("isDarkmode");
-            if(theme === null)
-                window.sessionStorage.setItem("isDarkmode",false)
-            else if(theme){
-                dispatch(true);
+            if(theme === null){
+                window.sessionStorage.setItem("isDarkmode", false)
+            }else if(theme == "true"){
+                dispatch();
             }
         }
     },[dispatch])

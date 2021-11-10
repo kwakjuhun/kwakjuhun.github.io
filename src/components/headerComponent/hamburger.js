@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled,{css} from 'styled-components';
 
 const Hamburger = styled.button`
     position: absolute;
@@ -9,7 +9,6 @@ const Hamburger = styled.button`
     height : 80px;
     border: 0px;
     background:white;
-    $checked
 `;
 const LineWrapper = styled.div`
     cursor:pointer;
@@ -28,29 +27,49 @@ const Line = styled.div`
     border-radius:2px;
     boxShadow:0 1px 3px rgba(0,0,0,.5);
     position:relative;
+    -webkit-transition: .4s;
+    transition: all .4s;
+    ${props => props.clicked}
 `;
-const TopLine = styled.div`
-    
-`
-const MidLine = styled.div`
+
+const TopLine = css`
+    ${Hamburger}:checked{
+        transform: translateY(15px) rotate(225deg);
+        transition-delay: 0.2s;
+    }
 
 `
-const BottomLine = styled.div`
+const MidLine = css`
+    ${Hamburger}:checked{
+        opacity: 0;
+        transform: translateX(50px);
+        background:white;
+    }
 
 `
+const BottomLine = css`
+    ${Hamburger}:checked{
+        transform: translateY(-11px) rotate(-225deg);
+        transition-delay: 0.2s;
+    }
+`
 
-// const scrolled = css`
-//     box-shadow: 0 4px 4px rgba(31, 35, 46, .15);
-//     transition: box-shadow .5s ease-in;
-// `;
+const scrolled = css`
+    box-shadow: 0 4px 4px rgba(31, 35, 46, .15);
+    transition: box-shadow .5s ease-in;
+`;
 
+const Test = styled.input`
+    width:50px;
+    height:50px;
+`;
 
-const hamburger = () => {
+const hamburger = ({changeCategoryState, isCategory}) => {
     return(
-        <Hamburger><LineWrapper>
-            <Line></Line>
-            <Line></Line>
-            <Line></Line>
+        <Hamburger onClick={()=>changeCategoryState()}><LineWrapper>
+            <Line clicked={TopLine}></Line>
+            <Line clicked={MidLine}></Line>
+            <Line clicked={BottomLine}></Line>
         </LineWrapper></Hamburger>
     )
 };

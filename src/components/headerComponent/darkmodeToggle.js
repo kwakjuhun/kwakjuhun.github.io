@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { useThemeChange, useThemeState } from '../../providers/themeContext';
+
 const Toggle = styled.label`
   position: absolute;
   top:10px;

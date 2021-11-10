@@ -3,12 +3,12 @@ import styled, { css } from "styled-components";
 // import theme from "../styles/theme";
 import DarkmodeToggle from "./headerComponent/darkmodeToggle";
 import Hamburger from "./headerComponent/hamburger";
+import Category from "./headerComponent/category";
 
 const Logo = styled.h2`
-    position: absolute;
-    left: 200px;
-    top: 10px;
+    display: inline-block;
     text-align: center;
+    font-family: "Noto Sans KR"
 `;
 
 const HeaderElement = styled.div`
@@ -28,10 +28,11 @@ const HeaderElement = styled.div`
     `}
 `
 
-const Header = () => {
+const Header = ({categoryData}) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isHeader, setIsHeader] = useState(true);
     const [thisLocation, setThisLocation] = useState(0);
+    const [isCategory, setIsCategory] = useState(false);
     const headerListener = () => {
         const thisWinLocation = window.pageYOffset
         if(thisLocation < thisWinLocation) { // 내림
@@ -48,13 +49,17 @@ const Header = () => {
         window.removeEventListener("scroll", headerListener)
       }
     }, [isScrolled, thisLocation]);
-    
+
+    const setCategory = (check) => {
+        setIsCategory(!isCategory)
+    };
 
     return(
         <HeaderElement isScrolled={isScrolled} isHeader={isHeader}>
-            <Hamburger></Hamburger>
+            <Hamburger changeCategoryState={setCategory} isCategory={isCategory}></Hamburger>
             <Logo>K-Blog</Logo>
             <DarkmodeToggle/>
+            <Category isCategory={isCategory} categoryData={categoryData}></Category>
         </HeaderElement>
     )
 };
