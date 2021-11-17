@@ -10,20 +10,38 @@ function changeTheme(state, action){
 }
 
 function SelectThemeProvider({children}){
-    const [state, dispatch] = React.useReducer(changeTheme, false);
 
-    useEffect(() => {
+
+    // ----- TEST -----
         const isBrowser = typeof window !== "undefined";
         let theme = false;
         if(isBrowser){
             theme = window.sessionStorage.getItem("isDarkmode");
             if(theme === null){
                 window.sessionStorage.setItem("isDarkmode", false)
-            }else if(theme == "true"){
-                dispatch();
+            // }else if(theme == "true"){
+
             }
         }
-    },[dispatch])
+
+    const [state, dispatch] = React.useReducer(changeTheme, theme);
+
+    // ----------------
+
+    // const [state, dispatch] = React.useReducer(changeTheme, false);
+    // 
+    // useEffect(() => {
+    //     const isBrowser = typeof window !== "undefined";
+    //     let theme = false;
+    //     if(isBrowser){
+    //         theme = window.sessionStorage.getItem("isDarkmode");
+    //         if(theme === null){
+    //             window.sessionStorage.setItem("isDarkmode", false)
+    //         }else if(theme == "true"){
+    //             dispatch();
+    //         }
+    //     }
+    // },[dispatch])
     return(
         <themeStateContext.Provider value={state}>
             <themeChangeContext.Provider value={dispatch}>

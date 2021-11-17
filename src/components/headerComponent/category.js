@@ -5,7 +5,7 @@ const CategoryElement = styled.div`
     position: fixed;
     left:0px;
     // width: 200px;
-    width: ${(props)=> props.isVisible? "200px":"0px"};
+    width: ${(props)=> props.isVisible? "450px":"0px"};
     background-color:white;
     transition: width .5s, height .5s;
     // transition-delay: visibility .5s;
@@ -33,7 +33,7 @@ const category = ({isCategory, categoryData}) => {
             <CategoryList isVisible={isCategory}>
                 {categoryData.map((category)=>{
                     return(
-                        <li key={category.fieldValue}> {category.fieldValue+"("+category.totalCount+")"} </li>
+                        <li key={category.fieldValue}> {category.fieldValue+" ("+category.totalCount+")"} </li>
                     )
                 })}
             </CategoryList>
