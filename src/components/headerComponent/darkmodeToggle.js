@@ -51,9 +51,10 @@ const Checkbox = styled.input`
 `;
 
 const DarkmodeToggle = () => {
+  console.log(useThemeState())
   return (
     <Toggle>
-      <Checkbox type="checkbox" checked={useThemeState()} onChange={useThemeChange({type:"change"})}></Checkbox>
+      <Checkbox type="checkbox" defaultChecked={useThemeState()} onClick={useThemeChange({type:"change"})}></Checkbox>
       <Slider></Slider>
     </Toggle>
   )

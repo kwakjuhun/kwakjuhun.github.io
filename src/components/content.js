@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Layer = styled.div`
+    margin-top: 80px;
     display: table;
     width:100%;
-    height:500px;
+    height:100%;
     background:${(props) => props.theme.colors.bgColor};
 `;
 const LayerInner = styled.div`
