@@ -4,9 +4,7 @@ import styled from  'styled-components'
 import GlobalStyle from "../styles/globalStyleTheme"
 import ThemeProvider from '../providers/themeProvider';
 import { SelectThemeProvider } from "../providers/themeContext"
-import CategoryBar from "../components/categoryBar";
 import Contents from "../components/content";
-
 import { Helmet } from "react-helmet";
 import {graphql} from "gatsby";
 const MainElement = styled.main`

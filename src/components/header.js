@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
-// import theme from "../styles/theme";
 import DarkmodeToggle from "./headerComponent/darkmodeToggle";
 import Hamburger from "./headerComponent/hamburger";
 import Category from "./headerComponent/category";
 
 const Logo = styled.h2`
-    display: inline-block;
+    // display: inline-block;
     text-align: center;
-    font-family: "Noto Sans KR"
+    // font-family: "Noto Sans KR"
 `;
 
 const HeaderElement = styled.div`

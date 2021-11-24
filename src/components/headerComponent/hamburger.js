@@ -27,49 +27,31 @@ const Line = styled.div`
     border-radius:2px;
     boxShadow:0 1px 3px rgba(0,0,0,.5);
     position:relative;
-    -webkit-transition: .4s;
-    transition: all .4s;
+    -webkit-transition: .2s;
+    transition: all .2s;
     ${props => props.clicked}
 `;
 
 const TopLine = css`
-    ${Hamburger}:checked{
-        transform: translateY(15px) rotate(225deg);
-        transition-delay: 0.2s;
-    }
-
+    transform: translateY(15px) rotate(225deg);
+    transition-delay: 0.2s;
 `
 const MidLine = css`
-    ${Hamburger}:checked{
-        opacity: 0;
-        transform: translateX(50px);
-        background:white;
-    }
-
+    opacity: 0;
+    transform: translateX(50px);
+    background:white;
 `
 const BottomLine = css`
-    ${Hamburger}:checked{
-        transform: translateY(-11px) rotate(-225deg);
-        transition-delay: 0.2s;
-    }
+    transform: translateY(-11px) rotate(-225deg);
+    transition-delay: 0.2s;
 `
-
-const scrolled = css`
-    box-shadow: 0 4px 4px rgba(31, 35, 46, .15);
-    transition: box-shadow .5s ease-in;
-`;
-
-const Test = styled.input`
-    width:50px;
-    height:50px;
-`;
 
 const hamburger = ({changeCategoryState, isCategory}) => {
     return(
         <Hamburger onClick={()=>changeCategoryState()}><LineWrapper>
-            <Line clicked={TopLine}></Line>
-            <Line clicked={MidLine}></Line>
-            <Line clicked={BottomLine}></Line>
+            <Line clicked={isCategory? TopLine:""}></Line>
+            <Line clicked={isCategory? MidLine:""}></Line>
+            <Line clicked={isCategory? BottomLine:""}></Line>
         </LineWrapper></Hamburger>
     )
 };
