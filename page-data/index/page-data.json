@@ -1,6 +1,6 @@
 {
     "componentChunkName": "component---src-pages-index-js",
     "path": "/",
-    "result": {"data":{"allMdx":{"group":[{"fieldValue":"Algorithm","totalCount":1},{"fieldValue":"Blog","totalCount":1}],"edges":[{"node":{"excerpt":"My first MDX post 1. TEST Hi Hi ~~","frontmatter":{"category":"Algorithm","title":"first test md file"}}},{"node":{"excerpt":"1. TEST Hi Hi ~~","frontmatter":{"category":"Blog","title":"second test md file"}}}]}},"pageContext":{"matchPath":"/*"}},
+    "result": {"data":{"allMdx":{"group":[{"fieldValue":"Algorithm","totalCount":1},{"fieldValue":"Blog","totalCount":1}],"edges":[{"node":{"excerpt":"1. TEST Hi Hi ~~","frontmatter":{"category":"Blog","title":"second test md file"}}},{"node":{"excerpt":"My first MDX post 1. TEST Hi Hi ~~","frontmatter":{"category":"Algorithm","title":"first test md file"}}}]},"allSite":{"edges":[{"node":{"siteMetadata":{"siteUrl":"https://kwakjuhun.github.io"}}}]}},"pageContext":{"matchPath":"/*"}},
     "staticQueryHashes": [],
     "matchPath": "/*"}
