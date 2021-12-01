@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-post-list-js",
-    "path": "/Blog",
-    "result": {"data":{"site":{"siteMetadata":{"title":"A_Z Blog"}},"allMdx":{"edges":[{"node":{"frontmatter":{"title":"second test md file","date":"2021-10-11"},"excerpt":"1. TEST Hi Hi ~~"}},{"node":{"frontmatter":{"title":"second test md file","date":"2021-10-11"},"excerpt":"1. TEST Hi Hi ~~"}},{"node":{"frontmatter":{"title":"second test md file","date":"2021-10-11"},"excerpt":"1. TEST Hi Hi ~~"}},{"node":{"frontmatter":{"title":"second test md file","date":"2021-10-11"},"excerpt":"1. TEST Hi Hi ~~"}},{"node":{"frontmatter":{"title":"second test md file","date":"2021-10-11"},"excerpt":"1. TEST Hi Hi ~~"}}]}},"pageContext":{"category":"Blog"}},
-    "staticQueryHashes": ["4075554628"]}
