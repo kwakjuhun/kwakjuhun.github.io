@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-post-list-js",
+    "path": "/Algorithm",
+    "result": {"data":{"site":{"siteMetadata":{"title":"A_Z Blog"}},"allMdx":{"edges":[{"node":{"frontmatter":{"title":"first test md file","date":"2021-10-10"},"excerpt":"My first MDX post 1. TEST Hi Hi ~~"}}]}},"pageContext":{"category":"Algorithm"}},
+    "staticQueryHashes": ["4075554628"]}
