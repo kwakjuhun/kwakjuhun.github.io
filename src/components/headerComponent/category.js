@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'gatsby'
 import styled, {css} from 'styled-components';
-
 const CategoryElement = styled.div`
     position: fixed;
     left:0px;
@@ -31,17 +31,17 @@ const CategoryItem = styled.li`
     text-overflow: ellipsis;
 `
 
-const category = ({isCategory, categoryData}) => {
+const Category = ({isCategory, categoryData}) => {
     return (
         <CategoryElement isVisible={isCategory}>
             <CategoryList isVisible={isCategory}>
                 {categoryData.map((category)=>{
                     return(
-                        <CategoryItem key={category.fieldValue}> {category.fieldValue+" ("+category.totalCount+")"} </CategoryItem>
+                        <CategoryItem key={category.fieldValue}><Link to={'/'+category.fieldValue}> {category.fieldValue+" ("+category.totalCount+")"} </Link></CategoryItem>
                     )
                 })}
             </CategoryList>
         </CategoryElement>
     )
 }
-export default category;
+export default Category;

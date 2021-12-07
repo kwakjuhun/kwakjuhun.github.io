@@ -6,7 +6,7 @@ const Layer = styled.div`
     display: table;
     width:100%;
     height:100%;
-    background:${(props) => props.theme.colors.bgColor};
+    background:${(props) => props.theme.colors.second};
 `;
 const LayerInner = styled.div`
     display: table-cell;
@@ -16,33 +16,23 @@ const LayerInner = styled.div`
 const ContentElement = styled.div`
     display: inline-block;
     width: 980px;
-    background:${(props) => props.theme.colors.color};
-    border-color: ${(props) => props.theme.colors.titleColor}
-    border: 1px solid;
+    background:${(props) => props.theme.colors.second};
+    // border: 1px solid;
     @media screen and (max-width: 980px){
         width: 100%;
     }
 `
-const PageElement = styled.li`
-    height: 100px;
-    color:${(props) => props.theme.colors.titleColor}    
-`
 
-// const Post = React.lazy(() => import("../components"))
 
-const Content = ({contents}) => {
-    const allPages = contents
+
+
+
+const Content = ({children}) => {
     return (
         <Layer>
             <LayerInner>
                 <ContentElement>
-                    <ul>
-                    {allPages.map((page)=>{
-                        return(
-                            <PageElement key={page.node.frontmatter.title}>{page.node.frontmatter.title}</PageElement>
-                        )
-                    })}
-                    </ul>
+                    {children}
                 </ContentElement>
             </LayerInner>
         </Layer>

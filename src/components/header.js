@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import DarkmodeToggle from "./headerComponent/darkmodeToggle";
 import Hamburger from "./headerComponent/hamburger";
 import Category from "./headerComponent/category";
+import { Link } from "gatsby";
 
 const Logo = styled.h2`
     // display: inline-block;
@@ -56,7 +57,7 @@ const Header = ({categoryData}) => {
     return(
         <HeaderElement isScrolled={isScrolled} isHeader={isHeader}>
             <Hamburger changeCategoryState={setCategory} isCategory={isCategory}></Hamburger>
-            <Logo>K-Blog</Logo>
+            <Logo><Link to="/">K-Blog</Link></Logo>
             <DarkmodeToggle/>
             <Category isCategory={isCategory} categoryData={categoryData}></Category>
         </HeaderElement>

@@ -13,15 +13,21 @@ const widthSize = {
 }
     
 const dark ={
-    titleColor : '#F5EAEA',
-    bgColor: '#4D4D4D',
-    color: '#000000',
+    first: '#121212',
+    second: '#181818',
+    third: '#282828',
+    fourd: '#404040',
+    primaryText: '#FFFFFF',
+    secondaryText: '#B3B3B3'
 }
 
 const light ={
-    titleColor : '#4D4D4D',
-    bgColor: '#F5EAEA',
-    color: '#FFF',
+    first: '#FFF',
+    second: '#FFF',
+    third: '#FFF',
+    fourd: '#101010',
+    primaryText: '#000',
+    secondaryText: '#121212'
 }
 
 export {

@@ -9,10 +9,14 @@ html{
 body{
   padding: 0;
   margin: 0;
-  background:${(props) => props.theme.colors.bgColor};
+  background:${(props) => props.theme.colors.first};
   height:200%;
   overflow-x:hidden;
   overflow-y:auto;
+}
+a{
+  text-decoration-line: none;
+  color: black;
 }
 `;
 

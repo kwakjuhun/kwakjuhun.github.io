@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://kwakjuhun.github.io/",
-    title: "A_Z Blog",
+    siteUrl: "https://kwakjuhun.github.io",
+    title: "k-Blog",
+    description:"kwak's IT Blog",
+    author:"Juhun Kwak"    
   },
   plugins: [
     "gatsby-plugin-styled-components",
@@ -14,30 +16,36 @@ module.exports = {
     },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
+    `gatsby-remark-images`,
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: `${__dirname}/src/images/icon.png`,
       },
     },
-    "gatsby-plugin-mdx",
+    { 
+      resolve:"gatsby-plugin-mdx",
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
+      },
+    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "images",
-        path: "./src/images/",
+        name: "contents",
+        path: `${__dirname}/contents/`,
       },
-      __key: "images",
+      __key: "contents",
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "blog",
-        path: `${__dirname}/src/blog/`,
-      },
-      __key: "blog",
-    },
+
   ],
 };
