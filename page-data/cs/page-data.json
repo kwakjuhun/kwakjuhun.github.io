@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-post-list-js",
+    "path": "/cs",
+    "result": {"data":{"site":{"siteMetadata":{"title":"k-Blog"}},"allMdx":{"edges":[{"node":{"slug":"cs/test_cs_folder/","frontmatter":{"title":"cs file","category":"cs","date":"2021-10-10","img":null},"excerpt":"1. TEST this is CS post"}}]}},"pageContext":{"category":"cs"}},
+    "staticQueryHashes": ["4075554628","63159454"]}
