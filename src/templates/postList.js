@@ -4,6 +4,11 @@ import Content from '../components/content'
 import {graphql, Link} from 'gatsby'
 import PostInfo from '../components/contentComponents/postInfo'
 import SEO from '../components/seo';
+import styled from 'styled-components';
+
+const PostListElement = styled.div`
+  margin-top: 100px;
+`;
 
 const PostList = ({ data, pageContext }) => {   
     const postListData = data.allMdx.edges
@@ -15,7 +20,7 @@ const PostList = ({ data, pageContext }) => {
               keywords={[`blog`, `gatsby`, `javascript`, `react`,`github pages`]}
             />
 
-            <Content>
+            <PostListElement>
                 {postListData.map((data,index)=>{
                     const title = data.node.frontmatter.title
                     const date = data.node.frontmatter.date
@@ -30,7 +35,7 @@ const PostList = ({ data, pageContext }) => {
                       </Link>
                     )
                 })}
-            </Content>
+            </PostListElement>
         </>
     )
 };
