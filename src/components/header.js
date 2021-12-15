@@ -50,7 +50,7 @@ const Header = ({categoryData}) => {
       }
     }, [isScrolled, thisLocation]);
 
-    const setCategory = (check) => {
+    const setCategory = () => {
         setIsCategory(!isCategory)
     };
 
@@ -59,7 +59,7 @@ const Header = ({categoryData}) => {
             <Hamburger changeCategoryState={setCategory} isCategory={isCategory}></Hamburger>
             <Logo><Link to="/">K-Blog</Link></Logo>
             <DarkmodeToggle/>
-            <Category isCategory={isCategory} categoryData={categoryData}></Category>
+            <Category isCategory={isCategory} setCategory={setCategory} categoryData={categoryData}></Category>
         </HeaderElement>
     )
 };

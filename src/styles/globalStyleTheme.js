@@ -1,6 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+:root{
+  --first: ${(props) => props.theme.colors.first};
+  --second: ${(props) => props.theme.colors.second};
+  --third: ${(props) => props.theme.colors.third};
+  --fourd: ${(props) => props.theme.colors.fourd};
+  --primaryText: ${(props) => props.theme.colors.primaryText};
+  --secondaryText: ${(props) => props.theme.colors.secondaryText};
+}
 
 html{
   height:200%;
@@ -9,7 +17,7 @@ html{
 body{
   padding: 0;
   margin: 0;
-  background:${(props) => props.theme.colors.first};
+  background: var(--first);
   height:200%;
   overflow-x:hidden;
   overflow-y:auto;

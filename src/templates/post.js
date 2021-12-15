@@ -14,7 +14,7 @@ const Post = ({ data }) => {
     const post = data.mdx
     const title = post.frontmatter.title
     return (
-        <Index>
+        <>
             <SEO
                 title={title}
                 keywords={[`blog`, `gatsby`, `javascript`, `react`,`github pages`,`${post.frontmatter.category}`]}
@@ -24,7 +24,7 @@ const Post = ({ data }) => {
                     <MDXRenderer>{post.body}</MDXRenderer>
                 </Css>
             </Content>
-        </Index>
+        </>
     )
 };
 

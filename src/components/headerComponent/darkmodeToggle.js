@@ -51,8 +51,17 @@ const Checkbox = styled.input`
 `;
 
 const DarkmodeToggle = () => {
+  // const [isDark, setDark] = useState(null)
+  // const context = useThemeState()
+  // useEffect(() => {
+  //   if(context){
+  //     setDark(true)
+  //   }
+  // },[context])
+
   return (
     <Toggle>
+      {/* <Checkbox type="checkbox" defaultChecked={isDark} onClick={useThemeChange({type:"change"})}></Checkbox> */}
       <Checkbox type="checkbox" defaultChecked={useThemeState()} onClick={useThemeChange({type:"change"})}></Checkbox>
       <Slider></Slider>
     </Toggle>

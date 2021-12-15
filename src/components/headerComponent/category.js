@@ -31,13 +31,20 @@ const CategoryItem = styled.li`
     text-overflow: ellipsis;
 `
 
-const Category = ({isCategory, categoryData}) => {
+const Category = ({isCategory, categoryData, setCategory}) => {
     return (
         <CategoryElement isVisible={isCategory}>
             <CategoryList isVisible={isCategory}>
                 {categoryData.map((category)=>{
                     return(
-                        <CategoryItem key={category.fieldValue}><Link to={'/'+category.fieldValue}> {category.fieldValue+" ("+category.totalCount+")"} </Link></CategoryItem>
+                        <CategoryItem key={category.fieldValue}>
+                            <Link
+                                to={'/'+category.fieldValue}
+                                onClick={(e)=>{
+                                    setCategory()
+                                }}
+                            > {category.fieldValue+" ("+category.totalCount+")"} </Link>
+                        </CategoryItem>
                     )
                 })}
             </CategoryList>

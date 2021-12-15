@@ -6,7 +6,8 @@ const Layer = styled.div`
     display: table;
     width:100%;
     height:100%;
-    background:${(props) => props.theme.colors.second};
+//    background:${(props) => props.theme.colors.second};
+    background:var(--second);
 `;
 const LayerInner = styled.div`
     display: table-cell;
@@ -16,7 +17,8 @@ const LayerInner = styled.div`
 const ContentElement = styled.div`
     display: inline-block;
     width: 980px;
-    background:${(props) => props.theme.colors.second};
+    // background:${(props) => props.theme.colors.second};
+    background:var(--second);
     // border: 1px solid;
     @media screen and (max-width: 980px){
         width: 100%;

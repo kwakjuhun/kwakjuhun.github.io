@@ -5,6 +5,7 @@ import {dark, light, widthSize } from "../styles/theme";
 
 const Theme = ({children}) => {
     let theme = {}
+    // console.log("ThemeProvider", useThemeState())
     theme['colors'] = useThemeState() ? dark:light;
     theme['size'] = widthSize;
     return (

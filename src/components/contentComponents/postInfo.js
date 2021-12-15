@@ -1,15 +1,16 @@
 import React from 'react';
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 const PostInfo = styled.div`
-    display: list-item;
-    // width: 900px;
     width:98%;
     margin:1%;
     height: 250px;
-    // border: 1px solid black;
     display: flex;
     background: ${(props) => props.theme.colors.third};
-    // margin:10px;
+    ${(props) => props.isMain && css`
+        width: 30%;
+        display: inline-block;
+        height: null;
+    `}
 
 `;
 
@@ -18,11 +19,17 @@ const ImgBox = styled.img`
     width: 230px;
     margin:10px;
     border: 1px solid black;
+    @container (max-width: 30%){
+        width:100%;
+    }
 `;
 
 const Info = styled.div`  
     margin-left : 20px;
     width : 650px;
+    @container (max-width: 200px){
+        width:100%;
+    }
 `;
 
 const Title = styled.h1`
@@ -70,8 +77,9 @@ const Date = styled.div`
     margin-left: 10px;
 `;
 const postInfo = ({ title, date, content, imgPath }) => {
+    const isMain = content == null ? true : false
     return(
-        <PostInfo>
+        <PostInfo isMain={isMain}>
             <ImgBox src={imgPath}></ImgBox>
             <Info>
                 <Title>{title}</Title>

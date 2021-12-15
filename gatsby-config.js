@@ -6,14 +6,30 @@ module.exports = {
     author:"Juhun Kwak"    
   },
   plugins: [
-    "gatsby-plugin-styled-components",
-    "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "G-KNCZLT7FVG",
+        head: true,
+        anonymize: true,
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-google-gtag`,
+    //   options: {
+    //     trackingId: `G-KNCZLT7FVG`, // 측정 ID
+    //     head: true, // head에 tracking script를 넣고 싶다면 true로 변경 
+    //     anonymize: true,
+    //   },
+    // },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      option: {
+        ssr: true
+      }
+    },
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     `gatsby-remark-images`,

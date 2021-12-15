@@ -6,42 +6,41 @@ const themeChangeContext = React.createContext();
 function changeTheme(state, action){
     state = !state;
     window.sessionStorage.setItem("isDarkmode", state);
-    console.log("changed to ", state)
     return state
 }
 
 function SelectThemeProvider({children}){
-
-
-    // ----- TEST -----
-    // const isBrowser = typeof window !== "undefined";
-    // let theme = false;
-    // if(isBrowser){
-    //     const check = window.sessionStorage.getItem("isDarkmode");
-    //     if(check === null){
-    //         window.sessionStorage.setItem("isDarkmode", false)
-    //     }else if(check == "true"){
-    //         theme = true;
-    //     }
-    // }
-    // console.log(theme)
-    // const [state, dispatch] = React.useReducer(changeTheme, theme);
-    // ----------------
-
-    const [state, dispatch] = React.useReducer(changeTheme, false);
-    
-    useEffect(() => {
-        const isBrowser = typeof window !== "undefined";
-        let theme = false;
-        if(isBrowser){
-            theme = window.sessionStorage.getItem("isDarkmode");
-            if(theme === null){
-                window.sessionStorage.setItem("isDarkmode", false)
-            }else if(theme == "true"){
-                dispatch();
-            }
+    const isBrowser = typeof window !== "undefined";
+    let theme = false;
+    if(isBrowser){
+        theme = window.sessionStorage.getItem("isDarkmode");
+        if(theme === null){
+            window.sessionStorage.setItem("isDarkmode", false)
+            theme = false
+        }else if(theme == "true"){
+            theme = true
+        }else{
+            theme = false
         }
-    },[dispatch])
+    }
+    // console.log(theme)
+
+    const [state, dispatch] = React.useReducer(changeTheme, theme);
+    // console.log(state)
+    // const [state, dispatch] = React.useReducer(changeTheme, false);
+    
+    // useEffect(() => {
+    //     const isBrowser = typeof window !== "undefined";
+    //     let theme = false;
+    //     if(isBrowser){
+    //         theme = window.sessionStorage.getItem("isDarkmode");
+    //         if(theme === null){
+    //             window.sessionStorage.setItem("isDarkmode", false)
+    //         }else if(theme == "true"){
+    //             dispatch();
+    //         }
+    //     }
+    // },[dispatch])
     
     return(
         <themeStateContext.Provider value={state}>

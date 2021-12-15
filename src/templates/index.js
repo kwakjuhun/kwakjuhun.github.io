@@ -55,8 +55,8 @@ const IndexPage = ({ children }) => {
             <Header categoryData={data.allMdx.group}></Header>
             {children}
           </MainElement>
-        </ThemeProvider>
-      </SelectThemeProvider>
+         </ThemeProvider>
+       </SelectThemeProvider>
     )}
   />
 )}

@@ -9,7 +9,7 @@ const PostList = ({ data, pageContext }) => {
     const postListData = data.allMdx.edges
     const category = pageContext.category
     return (
-        <Index>
+        <>
             <SEO
               title={category}
               keywords={[`blog`, `gatsby`, `javascript`, `react`,`github pages`]}
@@ -22,7 +22,8 @@ const PostList = ({ data, pageContext }) => {
                     const content = data.node.excerpt
                     const src = "/"+data.node.slug
                     // const imgPath = "https://kwakjuhun.github.io/"+data.node.frontmatter.img.childrenImageSharp[0].gatsbyImageData.images.fallback.src
-                    const imgPath = data.node.frontmatter.img.childrenImageSharp[0].gatsbyImageData.images.fallback.src
+      
+                    const imgPath = data.node.frontmatter.img == null? null : data.node.frontmatter.img.childrenImageSharp[0].gatsbyImageData.images.fallback.src
                     return (
                       <Link key={index} to={src}>
                         <PostInfo title={title} date={date} content={content} imgPath={imgPath}></PostInfo>
@@ -30,7 +31,7 @@ const PostList = ({ data, pageContext }) => {
                     )
                 })}
             </Content>
-        </Index>
+        </>
     )
 };
 
