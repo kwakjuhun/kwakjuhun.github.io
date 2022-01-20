@@ -9,7 +9,6 @@ const HeaderElement = styled.div`
     position: fixed;
     width: 100%;
     height: 80px;
-    // background-color: #fff;
     top: 0px;
     background-color: rgba(255,255,255, ${(props) => props.isTop?0:1});
     backdrop-filter: blur(10px);
@@ -37,9 +36,9 @@ const Header = ({ categoryData }) => {
         return () => {
             const thisLocation = window.pageYOffset;
             if(lastLocation < thisLocation) { // 내림
-                setIsScrolled(false)
-            }else{ // 올림
                 setIsScrolled(true)
+            }else{ // 올림
+                setIsScrolled(false)
             }
             if(thisLocation === 0){
                 setIsScrolled(false)
