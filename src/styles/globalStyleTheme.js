@@ -11,14 +11,12 @@ const GlobalStyle = createGlobalStyle`
 }
 
 html{
-  height:200%;
 };
 
 body{
   padding: 0;
   margin: 0;
   background: var(--first);
-  height:200%;
   overflow-x:hidden;
   overflow-y:auto;
 }

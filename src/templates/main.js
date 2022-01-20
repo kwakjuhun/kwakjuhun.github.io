@@ -1,31 +1,65 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby'
-import Index from './index'
-import Content from '../components/content'
+import React, { useEffect } from 'react';
 import styled  from 'styled-components';
 import SEO from '../components/seo';
-import PostInfo from '../components/contentComponents/postInfo';
+import Motto from '../components/mainComponents/motto';
 
 const MainPage = styled.div`
-    height: 100%;
+    // height: 100%;
+    // background-color: #9AC95F;
     // background:${(props)=>props.theme.colors.second}};
     // color:${(props)=>props.theme.colors.secondaryText}};
-    background:var(--second);
-    color:var(--secondaryText);
+    // background:var(--second);
+    // color:var(--secondaryText);
 `
 
-const Introduce = styled.div`
-    height: 500px;
-`
-const Posts = styled.div`
-`
-const CategoryPosts = styled.div`
-    width:100%;
+const Info = styled.div`
+    background-color: #9AC95F;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-	align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -o-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -o-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 0 1rem;
+    height: 60vh;
+`
+const SiteTitle = styled.div`
+    color: #113800;
+    font-size: 3em;
+    font-weight: 900;
+`
+
+const SocialWrapper = styled.div`
+    position: relative;
+    margin-top: 10px;
+`
+const Inner = styled.div`
+    position: relative;
+    width: 1160px;
+    margin: 0 auto;
+    padding: 0 32px;
+    background-color: #2A9BD5;
+    height: 1000px;
+`
+const Body = styled.div`
 `
 
 
@@ -35,62 +69,27 @@ const Main = ({ data }) => {
         <>
             <SEO
                 title={"main Page"}
-                keywords={[`blog`, `gatsby`, `javascript`, `react`,`github pages`]}
+                keywords={[`blog`, `gatsby`, `javascript`, `react`,`github pages`,`css`]}
             />
-            <Content>
-                <MainPage>
-                    <Introduce>
-                        <h1>간단한 본인 소개 부분</h1>
-                    </Introduce>
-                    <hr/>
-                    <h1>Posts</h1>
-                    {/* <Posts>
-                        {categoriesPosts.map(posts => {
-                            const category = posts.edges[0].node.frontmatter.category
-                            return(
-                                <div>
-                                    <h2>{category}</h2>
-                                    <hr/>
-                                    <CategoryPosts key={category}>
-                                        {posts.edges.map(post => {
-                                            const fm = post.node.frontmatter
-                                            console.log(fm)
-                                            const imgPath = fm.img == null? null:fm.img.childrenImageSharp[0].gatsbyImageData.images.fallback.src
-                                            return(
-                                                <PostInfo key={fm.title} title={fm.title} imgPath={imgPath}></PostInfo>
-                                            )
-                                        })}
-                                    </CategoryPosts>
-                                </div>
-                            )
-                        })}
-                    </Posts> */}
-                </MainPage>
-            </Content>
+            <MainPage>
+                <Info>
+                    <SiteTitle>Kwak - Blog</SiteTitle>
+                    <Motto/>
+                    <SocialWrapper>
+                        <a href="https://github.com/kwakjuhun">
+                            <img src={`GitHub.png`}></img>
+                        </a>
+                    </SocialWrapper>
+                </Info>
+                    <h1>엎는 중</h1>
+                <Body>
+                    <Inner>
+
+                    </Inner>
+                </Body>
+            </MainPage>
         </> 
     )
 };
 
 export default Main;
-
-// export const mainPageQuery = graphql`
-// query mainQuery {
-//     allMdx(sort: {order: DESC, fields: frontmatter___date}) {
-//         group(field: frontmatter___category, limit: 6) {
-//             edges {
-//                 node {
-//                 frontmatter {
-//                     category
-//                     title
-//                     img {
-//                         childrenImageSharp {
-//                             gatsbyImageData(formats: AUTO)
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-// `

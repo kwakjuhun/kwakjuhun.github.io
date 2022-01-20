@@ -5,6 +5,7 @@ const CategoryElement = styled.div`
     position: fixed;
     left:0px;
     background-color:white;
+    z-index: 1;
     transition: width .5s, height .5s;
     width: ${(props)=> props.isVisible? "450px":"0px"};
     height: ${(props)=> props.isVisible? "100vh":"0px"};

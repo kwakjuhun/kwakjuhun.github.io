@@ -10,7 +10,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 
 const MainElement = styled.main`
-  height:200%;
+  // height:200%;
 `;
 
 const IndexPage = ({ children }) => {
@@ -50,9 +50,11 @@ const IndexPage = ({ children }) => {
           <GlobalStyle/>
           <MainElement>
             <Helmet>
+              <meta name="google-site-verification" content="u99Pgo8uqf_UCtZnpHcW9Lq8aXYvHMUEVFfCy83b6sE" />
               <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1"/>
             </Helmet>
             <Header categoryData={data.allMdx.group}></Header>
+            
             {children}
           </MainElement>
          </ThemeProvider>
