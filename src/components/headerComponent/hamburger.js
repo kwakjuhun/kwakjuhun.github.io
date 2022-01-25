@@ -8,7 +8,7 @@ const Hamburger = styled.button`
     width : 80px;
     height : 80px;
     border: 0px;
-    background:white;
+    background-color: rgba(0,0,0,0);
 `;
 const LineWrapper = styled.div`
     cursor:pointer;
@@ -34,16 +34,12 @@ const Line = styled.div`
 
 const TopLine = css`
     transform: translateY(15px) rotate(225deg);
-    transition-delay: 0.2s;
 `
 const MidLine = css`
-    opacity: 0;
-    transform: translateX(50px);
-    background:white;
+    transform: rotate(225deg);
 `
 const BottomLine = css`
     transform: translateY(-11px) rotate(-225deg);
-    transition-delay: 0.2s;
 `
 
 const hamburger = ({changeCategoryState, isCategory}) => {

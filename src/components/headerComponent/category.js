@@ -1,55 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby'
 import styled, {css} from 'styled-components';
+import Hamburger from "./hamburger";
+
 const CategoryElement = styled.div`
     position: fixed;
     left:0px;
-    background-color:white;
+    top:80px;
+    background-color:rgba(255,255,255,1);
     z-index: 1;
-    transition: width .5s, height .5s;
-    width: ${(props)=> props.isVisible? "450px":"0px"};
-    height: ${(props)=> props.isVisible? "100vh":"0px"};
-    transition: height .1s, width .1s;
+    width: 300px;
+
+    ${(props) => !props.isVisible && css`
+        transform: translateX(-300px);
+    `};
+
     @media screen and ${props => props.theme.size.mobile}{
         width: 100%;
-        height: 100%;
         border-bottom: thick double black;
-        ${(props) =>
-            !props.isVisible && 
-            css`
-                height: 0%;
-                // width: 0%
-            `}
+        ${(props) => !props.isVisible && css`
+           transform: translateX(100%);
+        `};
     }
 `
 const CategoryList = styled.ul`
-    visibility: ${(props)=> props.isVisible? "visible":"hidden"};
-    // transition: ease-in 1s;
-    // transition-delay: visible .5s;
+    list-style: none;
+    padding-left: 20px;
+    padding-right: 20px;
 `
 
 const CategoryItem = styled.li`
-    text-overflow: ellipsis;
+    padding: 5px 0px 5px 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #efefef;
+    font-size: 15px;
+    // text-overflow: ellipsis;
 `
 
-const Category = ({isCategory, categoryData, setCategory}) => {
+const Category = () => {
+    const [isCategory, setCategory] = useState(false);
     return (
-        <CategoryElement isVisible={isCategory}>
-            <CategoryList isVisible={isCategory}>
-                {categoryData.map((category)=>{
-                    return(
-                        <CategoryItem key={category.fieldValue}>
-                            <Link
-                                to={'/'+category.fieldValue}
-                                onClick={(e)=>{
-                                    setCategory()
-                                }}
-                            > {category.fieldValue+" ("+category.totalCount+")"} </Link>
-                        </CategoryItem>
-                    )
-                })}
-            </CategoryList>
-        </CategoryElement>
+        <>
+            <Hamburger changeCategoryState={()=>{setCategory(!isCategory)}} isCategory={isCategory}/>
+            <CategoryElement isVisible={isCategory}>
+                <CategoryList>
+                    <CategoryItem>JavaScript</CategoryItem>
+                    <CategoryItem>React</CategoryItem>
+                    <CategoryItem>Node.js</CategoryItem>
+                </CategoryList>
+            </CategoryElement>
+        </>
     )
 }
+
+        // <CategoryElement isVisible={isCategory}>
+        //     <CategoryList isVisible={isCategory}>
+        //         {categoryData.map((category)=>{
+        //             return(
+        //                 <CategoryItem key={category.fieldValue}>
+        //                     <Link
+        //                         to={'/'+category.fieldValue}
+        //                         onClick={(e)=>{
+        //                             setCategory()
+        //                         }}
+        //                     > {category.fieldValue+" ("+category.totalCount+")"} </Link>
+        //                 </CategoryItem>
+        //             )
+        //         })}
+        //     </CategoryList>
+        // </CategoryElement>
+
 export default Category;

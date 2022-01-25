@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { Link } from "gatsby";
 
 import DarkmodeToggle from "./headerComponent/darkmodeToggle";
-
+import Category from "./headerComponent/category";
 
 const HeaderElement = styled.div`
     position: fixed;
@@ -63,6 +63,7 @@ const Header = ({ categoryData }) => {
             <Logo><Link to="/">K-Blog</Link></Logo>
             <DarkmodeToggle/>
             {/* <Category isCategory={isCategory} setCategory={setCategory} categoryData={categoryData}></Category> */}
+            <Category></Category>
         </HeaderElement>
     )
 }
