@@ -7,19 +7,19 @@ const CategoryElement = styled.div`
     position: fixed;
     left:0px;
     top:80px;
-    background-color:rgba(255,255,255,1);
+    background-color:${props => !props.isTop? "rgba(255,255,255,1)": "rgba(184,231,125,1)"};
     z-index: 1;
     width: 300px;
+    box-shadow: 2px 2px 2px 2px gray;
 
     ${(props) => !props.isVisible && css`
-        transform: translateX(-300px);
+        transform: translateX(-310px);
     `};
 
     @media screen and ${props => props.theme.size.mobile}{
         width: 100%;
-        border-bottom: thick double black;
         ${(props) => !props.isVisible && css`
-           transform: translateX(100%);
+           transform: translateX(-110%);
         `};
     }
 `
@@ -37,12 +37,12 @@ const CategoryItem = styled.li`
     // text-overflow: ellipsis;
 `
 
-const Category = () => {
+const Category = ({ isTop }) => {
     const [isCategory, setCategory] = useState(false);
     return (
         <>
             <Hamburger changeCategoryState={()=>{setCategory(!isCategory)}} isCategory={isCategory}/>
-            <CategoryElement isVisible={isCategory}>
+            <CategoryElement isTop={isTop} isVisible={isCategory}>
                 <CategoryList>
                     <CategoryItem>JavaScript</CategoryItem>
                     <CategoryItem>React</CategoryItem>

@@ -52,18 +52,16 @@ const Header = ({ categoryData }) => {
 
     useEffect(() => {
         window.addEventListener("scroll", scrollEvent());
-            return () => {
+        return () => {
             window.removeEventListener("scroll", scrollEvent())
         }
     }, [])
 
     return(
         <HeaderElement isScrolled={isScrolled} isTop={isTop}>
-            {/* <Hamburger changeCategoryState={setCategory} isCategory={isCategory}></Hamburger> */}
             <Logo><Link to="/">K-Blog</Link></Logo>
             <DarkmodeToggle/>
-            {/* <Category isCategory={isCategory} setCategory={setCategory} categoryData={categoryData}></Category> */}
-            <Category></Category>
+            <Category isTop={isTop}/>
         </HeaderElement>
     )
 }

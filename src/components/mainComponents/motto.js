@@ -19,6 +19,9 @@ const Motto = styled.div`
     font-size: 1.5rem;
     color: #113800;
     font-weight: 700;
+    @media screen and ${props => props.theme.size.mobile}{
+        font-size: 1em;   
+    }
 `
 
 const MottoElement = () => {

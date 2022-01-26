@@ -6,7 +6,7 @@ import ThemeProvider from '../providers/themeProvider';
 import { SelectThemeProvider } from "../providers/themeContext"
 import Contents from "../components/content";
 import { Helmet } from "react-helmet";
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby';
 
 
 const MainElement = styled.main`

@@ -30,6 +30,8 @@ const Line = styled.div`
     -webkit-transition: .2s;
     transition: all .2s;
     ${props => props.clicked}
+
+
 `;
 
 const TopLine = css`

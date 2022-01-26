@@ -14,29 +14,9 @@ const MainPage = styled.div`
 
 const Info = styled.div`
     background-color: #9AC95F;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: box;
     display: flex;
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    -o-box-orient: vertical;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    -o-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -moz-box-align: center;
-    -o-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
     align-items: center;
     padding: 0 1rem;
     height: 60vh;
@@ -45,6 +25,10 @@ const SiteTitle = styled.div`
     color: #113800;
     font-size: 3em;
     font-weight: 900;
+    @media screen and ${props => props.theme.size.mobile}{
+        font-size: 2em;   
+        font-weight: 600;
+    }
 `
 
 const SocialWrapper = styled.div`
