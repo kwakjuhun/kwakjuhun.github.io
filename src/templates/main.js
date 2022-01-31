@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled  from 'styled-components';
 import SEO from '../components/seo';
 import Motto from '../components/mainComponents/motto';
+import MainContents from '../components/mainComponents/mainContents';
 
 const MainPage = styled.div`
     // height: 100%;
@@ -19,7 +20,7 @@ const Info = styled.div`
     justify-content: center;
     align-items: center;
     padding: 0 1rem;
-    height: 60vh;
+    height: 100vh;
 `
 const SiteTitle = styled.div`
     color: #113800;
@@ -44,11 +45,14 @@ const Inner = styled.div`
     height: 1000px;
 `
 const Body = styled.div`
+    height: 3000px;
 `
 
+const IAM = styled.div`
+    height: 10vh;
+`
 
-const Main = ({ data }) => {
-    // const categoriesPosts = data.allMdx.group
+const Main = ({ data }) => {    
     return (
         <>
             <SEO
@@ -65,11 +69,9 @@ const Main = ({ data }) => {
                         </a>
                     </SocialWrapper>
                 </Info>
-                    <h1>엎는 중</h1>
                 <Body>
-                    <Inner>
-
-                    </Inner>
+                    <MainContents/>
+                    {/* <Inner></Inner> */}
                 </Body>
             </MainPage>
         </> 

@@ -27,11 +27,8 @@ const Line = styled.div`
     border-radius:2px;
     boxShadow:0 1px 3px rgba(0,0,0,.5);
     position:relative;
-    -webkit-transition: .2s;
     transition: all .2s;
     ${props => props.clicked}
-
-
 `;
 
 const TopLine = css`

@@ -31,13 +31,15 @@ const Header = ({ categoryData }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isTop, setIsTop] = useState(true);
 
-    const scrollEvent = () => {
+
+    // Scroll Event
+    useEffect(() => { 
         let lastLocation = window.pageYOffset;
-        return () => {
+        function scrollEvent(){
             const thisLocation = window.pageYOffset;
-            if(lastLocation < thisLocation) { // 내림
+            if(lastLocation < thisLocation) {
                 setIsScrolled(true)
-            }else{ // 올림
+            }else{
                 setIsScrolled(false)
             }
             if(thisLocation === 0){
@@ -46,14 +48,11 @@ const Header = ({ categoryData }) => {
             }else{
                 setIsTop(false)
             }
-            lastLocation = thisLocation
+            lastLocation = thisLocation 
         }
-    }
-
-    useEffect(() => {
-        window.addEventListener("scroll", scrollEvent());
+        window.addEventListener("scroll", scrollEvent);
         return () => {
-            window.removeEventListener("scroll", scrollEvent())
+            window.removeEventListener("scroll", scrollEvent);
         }
     }, [])
 
