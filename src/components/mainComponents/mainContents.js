@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
 const ContentsElement = styled.div`
+    height: 3000px;
 `
 
 const First = styled.div`
@@ -43,6 +44,24 @@ const Third = styled.div`
     transition: .5s;
 `;
 
+const TopButton = styled.a`
+    display:${props => props.visible? "scroll":"none"};
+    position:fixed;
+    bottom:20px;
+    right:10px;
+
+    border: none;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;    
+    background-color: #6aafe6;
+    color: #d4dfe6;
+`
+
 // 파일철 형태 디자인으로 
 const MainContents = () => {
     const [isSection, setIsSection] = useState(0);
@@ -59,10 +78,11 @@ const MainContents = () => {
         }
     }, [])
     return (
-        <ContentsElement next={setIsSection >= 0}>
+        <ContentsElement>
             <First next={isSection >= 1}></First>
             <Second next={isSection >= 2}></Second>
             <Third next={isSection >= 3}></Third>
+            <TopButton visible={isSection >= 1} href='#'> 위로 </TopButton>
         </ContentsElement>
     )
 }

@@ -44,13 +44,6 @@ const Inner = styled.div`
     background-color: #2A9BD5;
     height: 1000px;
 `
-const Body = styled.div`
-    height: 3000px;
-`
-
-const IAM = styled.div`
-    height: 10vh;
-`
 
 const Main = ({ data }) => {    
     return (
@@ -69,10 +62,8 @@ const Main = ({ data }) => {
                         </a>
                     </SocialWrapper>
                 </Info>
-                <Body>
-                    <MainContents/>
+                <MainContents/>
                     {/* <Inner></Inner> */}
-                </Body>
             </MainPage>
         </> 
     )
