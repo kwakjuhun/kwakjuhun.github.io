@@ -51,7 +51,7 @@ const MainContents = () => {
         const innerHeight = window.innerHeight;
         function changeSection(){
             let thisLoc = window.pageYOffset;
-            setIsSection(parseInt((thisLoc+900)/innerHeight))
+            setIsSection(parseInt((thisLoc+(innerHeight-10))/innerHeight))
         }
         window.addEventListener("scroll", changeSection);
         return () => {
