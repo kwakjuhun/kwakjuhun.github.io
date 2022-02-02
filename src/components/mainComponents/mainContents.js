@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
+import Introduce from './introduce';
+
 const ContentsElement = styled.div`
     height: 3000px;
 `
@@ -9,7 +11,7 @@ const First = styled.div`
     position: fixed;
     top: 0px;
     left: 0px;
-    background: red;
+    background-color: rgba(255,66,63);
     width: 100%;
     height: 100%;
     ${props => props.next ? "": css`
@@ -72,6 +74,7 @@ const MainContents = () => {
             let thisLoc = window.pageYOffset;
             setIsSection(parseInt((thisLoc+(innerHeight-10))/innerHeight))
         }
+        changeSection()
         window.addEventListener("scroll", changeSection);
         return () => {
             window.removeEventListener("scroll", changeSection);
@@ -79,7 +82,7 @@ const MainContents = () => {
     }, [])
     return (
         <ContentsElement>
-            <First next={isSection >= 1}></First>
+            <First next={isSection >= 1}><Introduce></Introduce></First>
             <Second next={isSection >= 2}></Second>
             <Third next={isSection >= 3}></Third>
             <TopButton visible={isSection >= 1} href='#'> 위로 </TopButton>
