@@ -18,7 +18,7 @@ const First = styled.div`
     ${props => props.next ? "": css`
         transform: translateY(-90%);
     `}
-    transition: translateY .5s;
+    transition: transform .5s;
 `;
 
 const Second = styled.div`
@@ -31,7 +31,7 @@ const Second = styled.div`
     ${props => props.next ? "": css`
         transform: translateY(-90%);
     `}
-    transition: translateY .5s;
+    transition: transform .5s;
 `;
 
 const Third = styled.div`
@@ -44,7 +44,7 @@ const Third = styled.div`
     ${props => props.next ? "": css`
         transform: translateY(-90%);
     `}
-    transition: translateY .5s;
+    transition: transform .5s;
 `;
 
 const TopButton = styled.a`

@@ -15,11 +15,9 @@ const IntroduceElement = styled.div`
         width: 90%;
     }
     @media screen and ${props => props.theme.size.mobile}{
-        width: 600px;
         grid-template-columns: repeat(2, 1fr);
     }
     @media screen and (max-width: 600px){
-        width: 90%;
         grid-template-columns: repeat(1, 1fr);
     }
 `
