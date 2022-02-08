@@ -11,6 +11,7 @@ const MainPage = styled.div`
     // color:${(props)=>props.theme.colors.secondaryText}};
     // background:var(--second);
     // color:var(--secondaryText);
+    background-color: #9AC95F;
 `
 
 const Info = styled.div`

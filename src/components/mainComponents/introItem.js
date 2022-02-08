@@ -4,8 +4,14 @@ import styled from 'styled-components';
 const Item = styled.div`
     display: block;
     margin: auto 0;
-    margin-left: 15px;
+    margin-left: 40px;
     white-space:nowrap;
+    @media screen and ${props => props.theme.size.tablet}{
+        margin-left: 20px;
+    }
+    @media screen and ${props => props.theme.size.mobile}{
+        margin-left: 25px;
+    }
 `   
 const ItemTitle = styled.div`
     font-weight: bold;

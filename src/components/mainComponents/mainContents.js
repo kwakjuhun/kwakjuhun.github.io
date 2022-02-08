@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import Algorithm from './algorithm';
 
 import Introduce from './introduce';
 
@@ -9,7 +10,7 @@ const ContentsElement = styled.div`
 
 const First = styled.div`
     position: fixed;
-    top: 0px;
+    top: 50px;
     left: 0px;
     background-color: rgba(255,66,63);
     width: 100%;
@@ -23,12 +24,12 @@ const First = styled.div`
 const Second = styled.div`
     position: fixed;
     background: orange;
-    top: 0px;
+    top: 75px;
     left: 0px;
     width: 100vw;
     height: 100vh;
     ${props => props.next ? "": css`
-        transform: translateY(865px);
+        transform: translateY(820px);
     `}
     transition: .5s;
 `;
@@ -36,12 +37,12 @@ const Second = styled.div`
 const Third = styled.div`
     position: fixed;
     background: yellow;
-    top: 0px;
+    top: 100px;
     left: 0px;
     width: 100vw;
     height: 100vh;
     ${props => props.next ? "": css`
-        transform: translateY(900px);
+        transform: translateY(810px);
     `}
     transition: .5s;
 `;
@@ -63,11 +64,50 @@ const TopButton = styled.a`
     background-color: #6aafe6;
     color: #d4dfe6;
 `
-
+const FirstButton = styled.div`
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    top: -40px;
+    background-color: rgba(255,66,63);
+    border-radius: 15px 15px 0px 0px;    
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    text-shadow: 1px 1px #AAAAAA;
+`
+const SecondButton = styled.div`
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    top: -40px;
+    left: 100px;
+    background-color: orange;
+    border-radius: 15px 15px 0px 0px;    
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    text-shadow: 1px 1px #AAAAAA;
+`
+const ThirdButton = styled.div`
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    top: -40px;
+    left: 200px;
+    background-color: yellow;
+    border-radius: 15px 15px 0px 0px;    
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    text-shadow: 1px 1px #AAAAAA;
+`
 // 파일철 형태 디자인으로 
 const MainContents = () => {
     const [isSection, setIsSection] = useState(0);
-
+    const MoveScroll = (index) => {
+        window.scrollTo({top:(index-1)*1000+100, behavior:'smooth'})
+    }
     useEffect(() => {
         const innerHeight = window.innerHeight;
         function changeSection(){
@@ -82,9 +122,16 @@ const MainContents = () => {
     }, [])
     return (
         <ContentsElement>
-            <First next={isSection >= 1}><Introduce></Introduce></First>
-            <Second next={isSection >= 2}></Second>
-            <Third next={isSection >= 3}></Third>
+            <First next={isSection >= 1}>
+                <FirstButton onClick={()=>MoveScroll(1)}> Introduce </FirstButton>
+                <Introduce/>
+                </First>
+            <Second next={isSection >= 2}>
+                <SecondButton onClick={()=>MoveScroll(2)}>Algorithm</SecondButton>
+                <Algorithm></Algorithm></Second>
+            <Third next={isSection >= 3}>
+                <ThirdButton onClick={()=>MoveScroll(3)}> 뭐 넣지 </ThirdButton>
+            </Third>
             <TopButton visible={isSection >= 1} href='#'> 위로 </TopButton>
         </ContentsElement>
     )

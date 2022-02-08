@@ -23,7 +23,7 @@ const IntroduceElement = styled.div`
 
 const Title = styled.h1`
     display: block;
-    margin-top: 100px;
+    margin-top: 50px;
     text-align: center;
     text-shadow: 1px 1px #FFFFFF;
 `
@@ -49,11 +49,6 @@ const Introduce = () => {
                     content="010-5409-2562"
                 />
                 <IntroItem
-                    img={`introduceEmail.png`}
-                    title="이메일"
-                    content="hn04193@naver.com"
-                />
-                <IntroItem
                     img={`introduceLanguage.png`}
                     title="언어"
                     content="한국어 日本語"
@@ -61,29 +56,13 @@ const Introduce = () => {
                 <IntroItem
                     img={`introduceHobby.png`}
                     title="취미"
-                    content="힙합 듣기"
+                    content="음악청취 (힙합)"
                 />
-                
-
-                {/* <thead>
-                    <tr>
-                        <th>ㅇㅇ</th><th>ㄴㄴ</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Name : Kwak Juhun</td> <td>Java Script(react)</td>
-                    </tr>
-                    <tr>
-                        <td>Birthday : 1997. 11. 18</td><td>Python (Django)</td>
-                    </tr>
-                    <tr>
-                        <td>Language : Korean, Japanese</td><td>Php(Laravel)</td>
-                    </tr>
-                    <tr>
-                        <td>Hobby : Rap Listening</td>
-                    </tr>
-                </tbody> */}
+                <IntroItem
+                    img={`introduceEmail.png`}
+                    title="이메일"
+                    content="hn04193@naver.com"
+                />
             </IntroduceElement>
         </>
     )
