@@ -11,11 +11,10 @@ const ContentsElement = styled.div`
 const First = styled.div`
     position: fixed;
     bottom: -97%;
-    // top: 50px;
     left: 0px;
     background-color: rgba(255,66,63);
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     ${props => props.next ? "": css`
         transform: translateY(-90%);
     `}
@@ -25,7 +24,6 @@ const First = styled.div`
 const Second = styled.div`
     position: fixed;
     background: orange;
-    // top: 75px;
     bottom: -98%;
     left: 0px;
     width: 100vw;
@@ -39,7 +37,6 @@ const Second = styled.div`
 const Third = styled.div`
     position: fixed;
     background: yellow;
-    // top: 100px;
     bottom: -99%;
     left: 0px;
     width: 100vw;
