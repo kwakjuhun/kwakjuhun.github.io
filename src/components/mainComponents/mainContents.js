@@ -10,13 +10,14 @@ const ContentsElement = styled.div`
 
 const First = styled.div`
     position: fixed;
-    top: 50px;
+    bottom: -97%;
+    // top: 50px;
     left: 0px;
     background-color: rgba(255,66,63);
     width: 100%;
     height: 100%;
     ${props => props.next ? "": css`
-        transform: translateY(830px);
+        transform: translateY(-90%);
     `}
     transition: .5s;
 `;
@@ -24,12 +25,13 @@ const First = styled.div`
 const Second = styled.div`
     position: fixed;
     background: orange;
-    top: 75px;
+    // top: 75px;
+    bottom: -98%;
     left: 0px;
     width: 100vw;
     height: 100vh;
     ${props => props.next ? "": css`
-        transform: translateY(820px);
+        transform: translateY(-90%);
     `}
     transition: .5s;
 `;
@@ -37,12 +39,13 @@ const Second = styled.div`
 const Third = styled.div`
     position: fixed;
     background: yellow;
-    top: 100px;
+    // top: 100px;
+    bottom: -99%;
     left: 0px;
     width: 100vw;
     height: 100vh;
     ${props => props.next ? "": css`
-        transform: translateY(810px);
+        transform: translateY(-90%);
     `}
     transition: .5s;
 `;
@@ -75,6 +78,10 @@ const FirstButton = styled.div`
     line-height: 40px;
     font-weight: bold;
     text-shadow: 1px 1px #AAAAAA;
+    &:hover ${First}{
+        background-color: red;
+        // transform: translateY(830px);
+    }
 `
 const SecondButton = styled.div`
     position: absolute;
@@ -122,14 +129,14 @@ const MainContents = () => {
     }, [])
     return (
         <ContentsElement>
-            <First next={isSection >= 1}>
+            <First next={isSection < 1}>
                 <FirstButton onClick={()=>MoveScroll(1)}> Introduce </FirstButton>
                 <Introduce/>
                 </First>
-            <Second next={isSection >= 2}>
+            <Second next={isSection < 2}>
                 <SecondButton onClick={()=>MoveScroll(2)}>Algorithm</SecondButton>
                 <Algorithm></Algorithm></Second>
-            <Third next={isSection >= 3}>
+            <Third next={isSection < 3}>
                 <ThirdButton onClick={()=>MoveScroll(3)}> 뭐 넣지 </ThirdButton>
             </Third>
             <TopButton visible={isSection >= 1} href='#'> 위로 </TopButton>

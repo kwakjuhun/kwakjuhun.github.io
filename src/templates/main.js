@@ -15,6 +15,8 @@ const MainPage = styled.div`
 `
 
 const Info = styled.div`
+    position: fixed;
+    width: 100%;
     background-color: #9AC95F;
     display: flex;
     flex-direction: column;
