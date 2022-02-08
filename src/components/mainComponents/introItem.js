@@ -12,6 +12,11 @@ const Item = styled.div`
     @media screen and ${props => props.theme.size.mobile}{
         margin-left: 25px;
     }
+    @media screen and (max-width: 600px){
+        // margin: 0 auto;
+        margin-left: 20vw;
+    }
+
 `   
 const ItemTitle = styled.div`
     font-weight: bold;
