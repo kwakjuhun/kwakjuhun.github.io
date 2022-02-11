@@ -10,13 +10,13 @@ const ContentsElement = styled.div`
 
 const First = styled.div`
     position: fixed;
-    bottom: -97%;
+    bottom: -97vh;
     left: 0px;
     background-color: rgba(255,66,63);
     width: 100vw;
     height: 100vh;
     ${props => props.next ? "": css`
-        transform: translateY(-90%);
+        transform: translateY(-90vh);
     `}
     transition: transform .5s;
 `;
@@ -24,12 +24,12 @@ const First = styled.div`
 const Second = styled.div`
     position: fixed;
     background: orange;
-    bottom: -98%;
+    bottom: -98vh;
     left: 0px;
     width: 100vw;
     height: 100vh;
     ${props => props.next ? "": css`
-        transform: translateY(-90%);
+        transform: translateY(-90vh);
     `}
     transition: transform .5s;
 `;
@@ -37,12 +37,12 @@ const Second = styled.div`
 const Third = styled.div`
     position: fixed;
     background: yellow;
-    bottom: -99%;
+    bottom: -99vh;
     left: 0px;
     width: 100vw;
     height: 100vh;
     ${props => props.next ? "": css`
-        transform: translateY(-90%);
+        transform: translateY(-90vh);
     `}
     transition: transform .5s;
 `;

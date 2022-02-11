@@ -13,7 +13,6 @@ const Item = styled.div`
         margin-left: 25px;
     }
     @media screen and (max-width: 600px){
-        // margin: 0 auto;
         margin-left: 20vw;
     }
 

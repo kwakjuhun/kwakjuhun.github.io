@@ -48,7 +48,7 @@ const Introduce = () => {
                 <IntroItem
                     img={`introducePhone.png`}
                     title="연락처"
-                    content="010-5409-2562"
+                    content="+82)10-5409-2562"
                 />
                 <IntroItem
                     img={`introduceLanguage.png`}
