@@ -10,13 +10,14 @@ const MainPage = styled.div`
 
 const Info = styled.div`
     position: fixed;
+    left: 0;
     width: 100%;
     background-color: #9AC95F;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 1rem;
+    // padding: 0 1rem;
     height: 100vh;
 `
 const SiteTitle = styled.div`
