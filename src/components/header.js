@@ -8,7 +8,7 @@ import Category from "./headerComponent/category";
 const HeaderElement = styled.div`
     position: fixed;
     width: 100%;
-    height: 80px;
+    height: 56px;
     top: 0px;
     background-color: rgba(255,255,255, ${(props) => props.isTop?0:1});
     backdrop-filter: blur(10px);
@@ -24,7 +24,10 @@ const HeaderElement = styled.div`
 `
 
 const Logo = styled.h2`
-    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%);
 `;
 
 const Header = ({ categoryData }) => {

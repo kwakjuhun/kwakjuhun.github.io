@@ -13,18 +13,18 @@ const Item = styled.div`
         margin-left: 25px;
     }
     @media screen and (max-width: 600px){
-        margin-left: 20vw;
+        margin-left: 17%;
     }
 
 `   
 const ItemTitle = styled.div`
     font-weight: bold;
-    font-size: x-large;
+    font-size: 1.5em;
 `
 
 const ItemContent = styled.div`
     margin-top: 10px;
-    font-size: larger;
+    font-size: 1em;
 `
 const ItemBody = styled.div`
     display: inline-block;
@@ -34,6 +34,9 @@ const ItemImage = styled.img`
     display: inline-block;
     width: 50px;
     height: 50px;
+    @media screen and (max-height: 800px){
+        transform: 
+    }
 `
 
 const IntroItem = ({img, title, content}) => {

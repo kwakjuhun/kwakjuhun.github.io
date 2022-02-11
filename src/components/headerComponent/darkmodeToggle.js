@@ -5,8 +5,8 @@ import { useThemeChange, useThemeState } from '../../providers/themeContext';
 
 const Toggle = styled.div`
   position: absolute;
-  top:10px;
-  right:10px;
+  top:5px;
+  right:5px;
 `;
 
 const Label = styled.label.attrs({ htmlFor:"check" })`

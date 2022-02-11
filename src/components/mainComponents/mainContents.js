@@ -5,9 +5,9 @@ import Algorithm from './algorithm';
 import Introduce from './introduce';
 
 const ContentsElement = styled.div`
-    height: 3000px;
+    height: 330vh;
 `
-
+// #FF6663  #FEB144  #FDFD97  #9EE09E   #9EC1CF   #CC99C9
 const First = styled.div`
     position: fixed;
     bottom: -97vh;
@@ -23,7 +23,7 @@ const First = styled.div`
 
 const Second = styled.div`
     position: fixed;
-    background: orange;
+    background: #FEB144;
     bottom: -98vh;
     left: 0px;
     width: 100vw;
@@ -36,7 +36,7 @@ const Second = styled.div`
 
 const Third = styled.div`
     position: fixed;
-    background: yellow;
+    background: #FDFD97;
     bottom: -99vh;
     left: 0px;
     width: 100vw;
@@ -86,7 +86,7 @@ const SecondButton = styled.div`
     height: 40px;
     top: -40px;
     left: 100px;
-    background-color: orange;
+    background-color: #FEB144;
     border-radius: 15px 15px 0px 0px;    
     text-align: center;
     line-height: 40px;
@@ -99,7 +99,7 @@ const ThirdButton = styled.div`
     height: 40px;
     top: -40px;
     left: 200px;
-    background-color: yellow;
+    background-color: #FDFD97;
     border-radius: 15px 15px 0px 0px;    
     text-align: center;
     line-height: 40px;
@@ -108,15 +108,22 @@ const ThirdButton = styled.div`
 `
 // 파일철 형태 디자인으로 
 const MainContents = () => {
-    const [isSection, setIsSection] = useState(0);
+    const [isSection, setIsSection] = useState(-1);
+
     const MoveScroll = (index) => {
-        window.scrollTo({top:(index-1)*1000+100, behavior:'smooth'})
-    }
-    useEffect(() => {
         const innerHeight = window.innerHeight;
-        function changeSection(){
+        window.scrollTo({top:index*innerHeight+100, behavior:'smooth'})
+    }
+
+
+    useEffect(() => {
+        const changeSection = () => {
+            const innerHeight = window.innerHeight;
             let thisLoc = window.pageYOffset;
-            setIsSection(parseInt((thisLoc+(innerHeight-10))/innerHeight))
+            if(thisLoc < 100)
+                setIsSection(-1)
+            else
+                setIsSection(1+parseInt(thisLoc/innerHeight))
         }
         changeSection()
         window.addEventListener("scroll", changeSection);
@@ -124,19 +131,20 @@ const MainContents = () => {
             window.removeEventListener("scroll", changeSection);
         }
     }, [])
+
     return (
         <ContentsElement>
-            <First next={isSection < 1}>
-                <FirstButton onClick={()=>MoveScroll(1)}> Introduce </FirstButton>
+            <First next={isSection <= 0}>
+                <FirstButton onClick={()=>MoveScroll(0)}> Introduce </FirstButton>
                 <Introduce/>
                 </First>
-            <Second next={isSection < 2}>
-                <SecondButton onClick={()=>MoveScroll(2)}>Algorithm</SecondButton>
+            <Second next={isSection <= 1}>
+                <SecondButton onClick={()=>MoveScroll(1)}>Algorithm</SecondButton>
                 <Algorithm></Algorithm></Second>
-            <Third next={isSection < 3}>
-                <ThirdButton onClick={()=>MoveScroll(3)}> 뭐 넣지 </ThirdButton>
+            <Third next={isSection <= 2}>
+                <ThirdButton onClick={()=>MoveScroll(2)}> 뭐 넣지 </ThirdButton>
             </Third>
-            <TopButton visible={isSection >= 1} href='#'> 위로 </TopButton>
+            <TopButton visible={isSection > 0} href='#'> 위로 </TopButton>
         </ContentsElement>
     )
 }

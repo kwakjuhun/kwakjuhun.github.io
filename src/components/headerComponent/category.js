@@ -6,7 +6,7 @@ import Hamburger from "./hamburger";
 const CategoryElement = styled.div`
     position: fixed;
     left:0px;
-    top:80px;
+    top:50px;
     background-color:${props => !props.isTop? "rgba(255,255,255,1)": "rgba(184,231,125,1)"};
     z-index: 1;
     width: 300px;

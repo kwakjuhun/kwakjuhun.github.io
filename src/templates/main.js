@@ -5,12 +5,6 @@ import Motto from '../components/mainComponents/motto';
 import MainContents from '../components/mainComponents/mainContents';
 
 const MainPage = styled.div`
-    // height: 100%;
-    // background-color: #9AC95F;
-    // background:${(props)=>props.theme.colors.second}};
-    // color:${(props)=>props.theme.colors.secondaryText}};
-    // background:var(--second);
-    // color:var(--secondaryText);
     background-color: #9AC95F;
 `
 
@@ -39,14 +33,7 @@ const SocialWrapper = styled.div`
     position: relative;
     margin-top: 10px;
 `
-const Inner = styled.div`
-    position: relative;
-    width: 1160px;
-    margin: 0 auto;
-    padding: 0 32px;
-    background-color: #2A9BD5;
-    height: 1000px;
-`
+
 
 const Main = ({ data }) => {    
     return (
@@ -66,7 +53,6 @@ const Main = ({ data }) => {
                     </SocialWrapper>
                 </Info>
                 <MainContents/>
-                    {/* <Inner></Inner> */}
             </MainPage>
         </> 
     )
