@@ -3,7 +3,8 @@ module.exports = {
     siteUrl: "https://kwakjuhun.github.io",
     title: "k-Blog",
     description:"kwak's IT Blog",
-    author:"Juhun Kwak"    
+    author:"Juhun Kwak",
+    language: 'ko'
   },
   plugins: [
     {
