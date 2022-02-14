@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-post-list-js",
+    "path": "/javascript",
+    "result": {"data":{"site":{"siteMetadata":{"title":"k-Blog"}},"allMdx":{"edges":[]}},"pageContext":{"category":"javascript"}},
+    "staticQueryHashes": ["4075554628","63159454"]}
