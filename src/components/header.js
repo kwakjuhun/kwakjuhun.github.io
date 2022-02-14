@@ -63,7 +63,7 @@ const Header = ({ categoryData }) => {
         <HeaderElement isScrolled={isScrolled} isTop={isTop}>
             <Logo><Link to="/">K-Blog</Link></Logo>
             <DarkmodeToggle/>
-            <Category isTop={isTop}/>
+            <Category categories={categoryData} isTop={isTop}/>
         </HeaderElement>
     )
 }

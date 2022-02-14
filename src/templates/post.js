@@ -5,25 +5,30 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import styled from 'styled-components';
 import SEO from '../components/seo';
+import Info from '../components/info';
 
 const Css = styled.div`
-    color:${(props)=>props.theme.colors.primaryText}
+    color:${(props)=>props.theme.colors.primaryText};
+    margin-top: 550px;
 `;
 
 const Post = ({ data }) => {
     const post = data.mdx
     const title = post.frontmatter.title
+    const date = post.frontmatter.date
+    console.log(data)
     return (
         <>
             <SEO
                 title={title}
                 keywords={[`blog`, `gatsby`, `javascript`, `react`,`github pages`,`${post.frontmatter.category}`]}
             />
-            <Content>
-                <Css>
-                    <MDXRenderer>{post.body}</MDXRenderer>
-                </Css>
-            </Content>
+            <Info title={title} date={date}></Info>
+            {/* <Content> */}
+            <Css>
+                <MDXRenderer>{post.body}</MDXRenderer>
+            </Css>
+            {/* </Content> */}
         </>
     )
 };

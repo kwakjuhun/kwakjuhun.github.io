@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled  from 'styled-components';
 import SEO from '../components/seo';
 import Motto from '../components/mainComponents/motto';
@@ -6,6 +6,7 @@ import MainContents from '../components/mainComponents/mainContents';
 
 const MainPage = styled.div`
     background-color: #9AC95F;
+    height: 330vh;
 `
 
 const Info = styled.div`
@@ -41,7 +42,7 @@ const Main = ({ data }) => {
         <>
             <SEO
                 title={"main Page"}
-                keywords={[`blog`, `gatsby`, `javascript`, `react`,`github pages`,`css`]}
+                keywords={[`blog`, `gatsby`, `javascript`, `react`,`github pages`,`css`, `portfolio`, `포트폴리오`, `블로그`]}
             />
             <MainPage>
                 <Info>

@@ -5,7 +5,9 @@ import Algorithm from './algorithm';
 import Introduce from './introduce';
 
 const ContentsElement = styled.div`
-    height: 330vh;
+    position: absolute;
+    left: 0px;
+    // height: 330vh;
 `
 // #FF6663  #FEB144  #FDFD97  #9EE09E   #9EC1CF   #CC99C9
 const First = styled.div`
@@ -13,7 +15,7 @@ const First = styled.div`
     bottom: -97vh;
     left: 0px;
     background-color: rgba(255,66,63);
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     ${props => props.next ? "": css`
         transform: translateY(-90vh);
@@ -26,7 +28,7 @@ const Second = styled.div`
     background: #FEB144;
     bottom: -98vh;
     left: 0px;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     ${props => props.next ? "": css`
         transform: translateY(-90vh);
@@ -39,7 +41,7 @@ const Third = styled.div`
     background: #FDFD97;
     bottom: -99vh;
     left: 0px;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     ${props => props.next ? "": css`
         transform: translateY(-90vh);

@@ -37,16 +37,25 @@ const CategoryItem = styled.li`
     // text-overflow: ellipsis;
 `
 
-const Category = ({ isTop }) => {
+const Category = ({ isTop, categories }) => {
     const [isCategory, setCategory] = useState(false);
     return (
         <>
             <Hamburger changeCategoryState={()=>{setCategory(!isCategory)}} isCategory={isCategory}/>
             <CategoryElement isTop={isTop} isVisible={isCategory}>
                 <CategoryList>
-                    <CategoryItem>JavaScript</CategoryItem>
-                    <CategoryItem>React</CategoryItem>
-                    <CategoryItem>Node.js</CategoryItem>
+                {categories.map((category)=>{
+                    return(
+                        <CategoryItem key={category.fieldValue}>
+                            <Link
+                                to={'/'+category.fieldValue}
+                                onClick={(e)=>{
+                                    setCategory()
+                                }}
+                            > {category.fieldValue+" ("+category.totalCount+")"} </Link>
+                        </CategoryItem>
+                    )
+                })}
                 </CategoryList>
             </CategoryElement>
         </>
