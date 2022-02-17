@@ -1,22 +1,33 @@
 import React from 'react';
 import Index from './index'
-import Content from '../components/content'
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import styled from 'styled-components';
 import SEO from '../components/seo';
 import Info from '../components/info';
+import { Disqus } from 'gatsby-plugin-disqus';
 
-const Css = styled.div`
+const Main = styled.div`
     color:${(props)=>props.theme.colors.primaryText};
     margin-top: 550px;
-`;
+`
+
+const Content = styled.div`
+    width: 1000px;
+    padding: 0 10px;
+    margin: 0 auto;
+`
 
 const Post = ({ data }) => {
     const post = data.mdx
     const title = post.frontmatter.title
     const date = post.frontmatter.date
-    console.log(data)
+    let disqueConfig = {
+        // url: '/',
+        identifier: data.mdx.id,
+        // title: `${title}`,
+
+    }
     return (
         <>
             <SEO
@@ -24,11 +35,14 @@ const Post = ({ data }) => {
                 keywords={[`blog`, `gatsby`, `javascript`, `react`,`github pages`,`${post.frontmatter.category}`]}
             />
             <Info title={title} date={date}></Info>
-            {/* <Content> */}
-            <Css>
-                <MDXRenderer>{post.body}</MDXRenderer>
-            </Css>
-            {/* </Content> */}
+            <Main>
+                <Content>
+                    <MDXRenderer>{post.body}</MDXRenderer>
+                </Content>
+                <Disqus
+                    config={disqueConfig}
+                />
+            </Main>
         </>
     )
 };

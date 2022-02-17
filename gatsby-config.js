@@ -15,14 +15,12 @@ module.exports = {
         anonymize: true,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-google-gtag`,
-    //   options: {
-    //     trackingId: `G-KNCZLT7FVG`, // 측정 ID
-    //     head: true, // head에 tracking script를 넣고 싶다면 true로 변경 
-    //     anonymize: true,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+          shortname: `kwakjuhun-github-io`
+      }
+    },
     {
       resolve: `gatsby-plugin-styled-components`,
       option: {
