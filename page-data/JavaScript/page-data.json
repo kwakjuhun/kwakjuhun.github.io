@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-post-list-js",
-    "path": "/javascript",
+    "path": "/JavaScript",
     "result": {"data":{"site":{"siteMetadata":{"title":"k-Blog"}},"allMdx":{"edges":[{"node":{"slug":"JavaScript/Data-and-Variables/","frontmatter":{"title":"[JS] 데이터와 변수","category":"JavaScript","date":"2022-02-14"},"excerpt":"<<<<<< 만드는 중! >>>>>> 1. 데이터 타입 (Data type) 원시형(primitive type) 객체가 아니면서 메서드도 가지지 않는 데이터입니다. \n모든 원시 값은  불변성  을 띄고 있습니다. 불변성(immutability…"}}]}},"pageContext":{"category":"JavaScript"}},
     "staticQueryHashes": ["4075554628","63159454"]}
