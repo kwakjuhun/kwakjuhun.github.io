@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-post-list-js",
-    "path": "/frontend",
-    "result": {"data":{"site":{"siteMetadata":{"title":"k-Blog"}},"allMdx":{"edges":[{"node":{"slug":"frontend/Test_File_Front/","frontmatter":{"title":"front file","category":"frontend","date":"2021-10-11","img":null},"excerpt":"1. TEST this is front post"}}]}},"pageContext":{"category":"frontend"}},
-    "staticQueryHashes": ["4075554628","63159454"]}
