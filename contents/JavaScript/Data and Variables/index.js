@@ -2,7 +2,17 @@ import React, { useEffect, useState, useRef } from 'react';
 import styled, {css} from 'styled-components';
 import Highlighter from '../../../src/styles/highlighter';
 
-const IndexElement = styled.div`
+const CodeElement = styled.div`
+    line-height: 2em;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    @media screen and ${props => props.theme.size.mobile}{
+        grid-template-rows: 300px 1fr;
+        grid-template-columns: repeat(1, 1fr);
+    }
+`
+const ShowElement = styled.div`
     position: sticky;
     top: 100px;
     width: 95%;
@@ -10,32 +20,39 @@ const IndexElement = styled.div`
     display: grid;
     border-radius: 10px;
     grid-template-rows: repeat(2, 1fr);
+    @media screen and ${props => props.theme.size.mobile}{
+        order: 1;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        height: 300px;
+        width: 95vw;
+    }
 `   
+const Explanation = styled.div`
+    width: 45%;
+    @media screen and ${props => props.theme.size.mobile}{
+        width: 90vw;
+        order: 2;
+    }
+`
 const Code = styled.div`
     background-color: rgb(40, 44, 52);
     color: white;
-    width: 100%;
+    // width: 100%;
     border: 1px solid black;
 `
 const Memory = styled.div`
     border: 1px solid black;
+    background: white;
 `
-const Explanation = styled.div`
-    width: 95%;
+const HeaderFooter = styled.div`
     height: 270px;
 `
 
-
 const Content = styled.div`
-    width: 95%;
     margin-top: 50px;
 `
-const Test = styled.div`
-    line-height: 2em;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-`
+
 const Inner = styled.div`
     margin : 10px;
     margin-left: 30px;
@@ -49,7 +66,6 @@ const CodeLine = styled.div`
     margin-bottom: 2px;
     overflow: hidden; 
     height: 25px;
-    // height: 100px;
     ${props => props.isVisible}
 `
 
@@ -59,13 +75,17 @@ const Index = ({children}) => {
     const info = children[0].props.children;
     const contents = children.slice(1,-1).map((line)=>line.props.children);
     const end = children[children.length - 1].props.children;
-    // console.log(children.map((line)=>{return line.props.children}))
-    // const [y, setY] = useState(0) 
     useEffect(() => {
+
         const yLocs = contentElements.current.map((el)=>{
-            return el.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 2);
+            if (window.innerWidth <= 768){
+                const innerHeight = window.innerHeight / 2;
+                return el.getBoundingClientRect().top + window.pageYOffset - innerHeight - (innerHeight / 2);
+            }
+            else{
+                return el.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 2);
+            }
         })
-        const maxCnt = yLocs.length - 1;
         const check = () => {
             const thisYOffset = window.pageYOffset;
             let cnt = -1
@@ -86,45 +106,37 @@ const Index = ({children}) => {
     }, [])
 
     const setVisibile = (i, j) => {
-        if(i <= isLocation)
-            if(j >= isLocation) // 보임
-                return css`
-                    transition: height .5s, transform .5s .5s, opacity .5s .5s;
-                `
-            else // 지워짐
-                return css` 
-                    transform: translateX(250px); 
-                    height: 0px; 
-                    opacity: 0;    
-                    transition: height .5s .5s, transform .5s, opacity .5s;
-                    `
-        else
+        if(i <= isLocation && j >= isLocation)
             return css`
+                transition: height .5s, transform .5s .5s, opacity .5s .5s;
+                `
+        else // 지워짐
+            return css` 
                 transform: translateX(250px); 
                 height: 0px; 
-                opacity: 0;                                
+                opacity: 0;    
                 transition: height .5s .5s, transform .5s, opacity .5s;
-            `
+                `
     }
     return(
-        <Test>
-            <div>
-                <Explanation>
+        <CodeElement>
+            <Explanation>
+                <HeaderFooter>
                     {info}
-                </Explanation>
+                </HeaderFooter>
                 <Content>
                     {contents.map((line, index) => {
                         return <ContentLine ref={e => contentElements.current[index] = e} isBold={isLocation == index}>{line}</ContentLine>
                     })}
                 </Content>
-                <Explanation>
+                <HeaderFooter>
                     {end}
-                </Explanation>
-            </div>
+                </HeaderFooter>
+            </Explanation>
 
-            <IndexElement>
+            <ShowElement>
                 <Code>
-                    <>&lt;Code&gt;<br/></>
+                    &lt;Code&gt;<br/>
                     <Inner>
                         <CodeLine isVisible={setVisibile(0,999)} >let x;</CodeLine>
                         <CodeLine isVisible={setVisibile(2,999)} >x = "aaa";</CodeLine>
@@ -143,8 +155,8 @@ const Index = ({children}) => {
                         <CodeLine isVisible={setVisibile(6,999)} > @5002 : "bbb" </CodeLine>
                     </Inner>
                 </Memory>
-            </IndexElement>
-        </Test>
+            </ShowElement>
+        </CodeElement>
     )
 }
 
