@@ -40,13 +40,13 @@ exports.createPages = ({ graphql, actions }) => {
         component:mainPage
     })
 
-    createPage({
-      path:"/javascript",
-      component:postListPage,
-      context:{
-        category:"javascript"
-      }
-    })
+    // createPage({
+    //   path:"/javascript",
+    //   component:postListPage,
+    //   context:{
+    //     category:"javascript"
+    //   }
+    // })
     // 리스트 페이지
     const listData = result.data.allMdx.group
 

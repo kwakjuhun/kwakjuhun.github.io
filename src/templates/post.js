@@ -59,11 +59,6 @@ query postBySlug($id: String!) {
             category
             date(formatString: "YYYY, MMM DD")
             title
-            img {
-                childImageSharp {
-                    gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH, formats: [AUTO, AVIF, WEBP])
-                }
-            }
         }
     }
 }

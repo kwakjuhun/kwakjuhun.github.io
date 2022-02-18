@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled, {css} from 'styled-components';
 import Highlighter from '../../../src/styles/highlighter';
 
@@ -8,33 +8,30 @@ const IndexElement = styled.div`
     width: 95%;
     height: 700px;
     display: grid;
-    // border: 3px dotted black;
     border-radius: 10px;
     grid-template-rows: repeat(2, 1fr);
-    // justify-content: center;
-    // align-items: center;
 `   
 const Code = styled.div`
     background-color: rgb(40, 44, 52);
     color: white;
     width: 100%;
-    // width: 90%;
-    // height: 300px;
-    // margin-top: 40px;
     border: 1px solid black;
 `
 const Memory = styled.div`
-    // background: red;
-    // width: 494px;
-    // width:90%;
-    // height: 294px;
     border: 1px solid black;
 `
+const Explanation = styled.div`
+    width: 95%;
+    height: 270px;
+`
+
+
 const Content = styled.div`
     width: 95%;
-    margin: 350px 0;
+    margin-top: 50px;
 `
 const Test = styled.div`
+    line-height: 2em;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
@@ -44,13 +41,6 @@ const Inner = styled.div`
     margin-left: 30px;
 `
 
-const Explanation = styled.div`
-`
-const MemoryTable = styled.table`
-    display: inline-block;
-    height: 60px;
-    border:1px solid black;
-`
 const ContentLine = styled.div`
     font-weight: ${(props) => props.isBold ? "bold":""};
     margin-bottom: 100px;
@@ -63,30 +53,32 @@ const CodeLine = styled.div`
     ${props => props.isVisible}
 `
 
-
-const code = {
-
-}
-
-const memory = {
-
-}
-const contents = [
-
-]
 const Index = ({children}) => {
-    const [isLocation, setLocation] = useState(0)
-    const contents = children.map((line)=>line.props.children)
-
+    const [isLocation, setLocation] = useState(0);
+    const contentElements = useRef([])
+    const info = children[0].props.children;
+    const contents = children.slice(1,-1).map((line)=>line.props.children);
+    const end = children[children.length - 1].props.children;
     // console.log(children.map((line)=>{return line.props.children}))
     // const [y, setY] = useState(0) 
     useEffect(() => {
+        const yLocs = contentElements.current.map((el)=>{
+            return el.getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 2);
+        })
+        const maxCnt = yLocs.length - 1;
         const check = () => {
-            const loc = parseInt(window.pageYOffset / 100)-10;
-            if(0 <= loc && loc <= 19)
-                setLocation(loc)
+            const thisYOffset = window.pageYOffset;
+            let cnt = -1
+            yLocs.forEach((y)=>{
+                if(y <= thisYOffset){
+                    cnt += 1;
+                }else{
+                    return false;
+                }
+            })
+            setLocation(cnt)
         }
-        check()
+
         window.addEventListener("scroll", check);
         return () => {
             window.removeEventListener("scroll", check);
@@ -116,31 +108,39 @@ const Index = ({children}) => {
     }
     return(
         <Test>
-            <Content>
-                {contents.map((line, index) => {
-                    return <ContentLine isBold={isLocation == index}>{line}</ContentLine>
-                })}
-            </Content>
+            <div>
+                <Explanation>
+                    {info}
+                </Explanation>
+                <Content>
+                    {contents.map((line, index) => {
+                        return <ContentLine ref={e => contentElements.current[index] = e} isBold={isLocation == index}>{line}</ContentLine>
+                    })}
+                </Content>
+                <Explanation>
+                    {end}
+                </Explanation>
+            </div>
 
             <IndexElement>
                 <Code>
                     <>&lt;Code&gt;<br/></>
                     <Inner>
-                        <CodeLine isVisible={setVisibile(0,10)} >let x;</CodeLine>
-                        <CodeLine isVisible={setVisibile(2,10)} >x = "aaa";</CodeLine>
-                        <CodeLine isVisible={setVisibile(5,10)} >x = "bbb";</CodeLine>
-                        <CodeLine isVisible={setVisibile(8,10)} >y = "bbb";</CodeLine>
+                        <CodeLine isVisible={setVisibile(0,999)} >let x;</CodeLine>
+                        <CodeLine isVisible={setVisibile(2,999)} >x = "aaa";</CodeLine>
+                        <CodeLine isVisible={setVisibile(5,999)} >x = "bbb";</CodeLine>
+                        <CodeLine isVisible={setVisibile(7,999)} >y = "bbb";</CodeLine>
                     </Inner>
                 </Code>
                 <Memory>
                     &lt;Memory&gt;<br/>
                     <Inner>
-                        <CodeLine isVisible={setVisibile(1,3)} > @1001 : x =&gt; </CodeLine>
-                        <CodeLine isVisible={setVisibile(4,6)} > @1001 : x =&gt; @5001  </CodeLine>
-                        <CodeLine isVisible={setVisibile(7,10)} > @1001 : x =&gt; @5002  </CodeLine>
-                        <CodeLine isVisible={setVisibile(9,10)} > @1002 : y =&gt; @5002  </CodeLine>
-                        <CodeLine isVisible={setVisibile(3,10)} > @5001 : "aaa" </CodeLine>
-                        <CodeLine isVisible={setVisibile(6,10)} > @5002 : "bbb" </CodeLine>
+                        <CodeLine isVisible={setVisibile(1,3)} > @1001 : x → </CodeLine>
+                        <CodeLine isVisible={setVisibile(4,6)} > @1001 : x → @5001  </CodeLine>
+                        <CodeLine isVisible={setVisibile(6,999)} > @1001 : x → @5002  </CodeLine>
+                        <CodeLine isVisible={setVisibile(8,999)} > @1002 : y → @5002  </CodeLine>
+                        <CodeLine isVisible={setVisibile(3,999)} > @5001 : "aaa" </CodeLine>
+                        <CodeLine isVisible={setVisibile(6,999)} > @5002 : "bbb" </CodeLine>
                     </Inner>
                 </Memory>
             </IndexElement>

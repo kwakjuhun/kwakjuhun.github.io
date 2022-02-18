@@ -100,11 +100,6 @@ query postList($category: String) {
             title
             category
             date
-            img {
-                childrenImageSharp {
-                  gatsbyImageData(formats: AUTO)
-                }
-              }
             }
         excerpt
         }
