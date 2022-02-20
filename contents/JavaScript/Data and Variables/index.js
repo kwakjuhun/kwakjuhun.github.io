@@ -12,6 +12,7 @@ const CodeElement = styled.div`
         grid-template-columns: repeat(1, 1fr);
     }
 `
+
 const ShowElement = styled.div`
     position: sticky;
     top: 100px;
@@ -25,11 +26,13 @@ const ShowElement = styled.div`
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(1, 1fr);
         height: 300px;
+        top: 56px;
         width: 95vw;
     }
-`   
+`
+
 const Explanation = styled.div`
-    width: 45%;
+    width: 95%;
     @media screen and ${props => props.theme.size.mobile}{
         width: 90vw;
         order: 2;
