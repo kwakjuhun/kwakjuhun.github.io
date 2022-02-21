@@ -62,7 +62,7 @@ const Header = ({ categoryData }) => {
     return(
         <HeaderElement isScrolled={isScrolled} isTop={isTop}>
             <Logo><Link to="/">K-Blog</Link></Logo>
-            <DarkmodeToggle/>
+            {/* <DarkmodeToggle/> */}
             <Category categories={categoryData} isTop={isTop}/>
         </HeaderElement>
     )

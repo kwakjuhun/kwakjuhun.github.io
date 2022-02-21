@@ -16,23 +16,28 @@ const Content = styled.div`
     width: 1000px;
     padding: 0 10px;
     margin: 0 auto;
+    @media screen and ${props => props.theme.size.mobile}{
+        width: calc( 95vw - 10px );
+    }
 `
 
 const Post = ({ data }) => {
-    const post = data.mdx
-    const title = post.frontmatter.title
-    const date = post.frontmatter.date
-    let disqueConfig = {
+    const post = data.mdx;
+    const category = post.frontmatter.category;
+    const title = post.frontmatter.title;
+    const date = post.frontmatter.date;
+    const tags = post.frontmatter.tags;
+    const disqueConfig = {
         // url: '/',
-        identifier: data.mdx.id,
+        identifier: post.id,
         // title: `${title}`,
+    };
 
-    }
     return (
         <>
             <SEO
                 title={title}
-                keywords={[`blog`, `gatsby`, `javascript`, `react`,`github pages`,`${post.frontmatter.category}`]}
+                keywords={[{category}] + tags}
             />
             <Info title={title} date={date}></Info>
             <Main>
@@ -59,6 +64,7 @@ query postBySlug($id: String!) {
             category
             date(formatString: "YYYY, MMM DD")
             title
+            tags
         }
     }
 }

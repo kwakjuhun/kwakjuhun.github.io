@@ -12,7 +12,7 @@ const CodeElement = styled.div`
         grid-template-columns: repeat(1, 1fr);
     }
 `
-
+ 
 const ShowElement = styled.div`
     position: sticky;
     top: 100px;
@@ -25,9 +25,10 @@ const ShowElement = styled.div`
         order: 1;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(1, 1fr);
-        height: 300px;
+        height: 300px; 
         top: 56px;
-        width: 95vw;
+        // width: 95vw;
+        width: calc( 95vw - 10px );
     }
 `
 
@@ -47,6 +48,7 @@ const Code = styled.div`
 const Memory = styled.div`
     border: 1px solid black;
     background: white;
+    // ${props => console.log(props)}
 `
 const HeaderFooter = styled.div`
     height: 270px;
@@ -66,20 +68,21 @@ const ContentLine = styled.div`
     margin-bottom: 100px;
 `
 const CodeLine = styled.div`
-    margin-bottom: 2px;
     overflow: hidden; 
-    height: 25px;
+    height: 30px;
     ${props => props.isVisible}
 `
 
 const Index = ({children}) => {
     const [isLocation, setLocation] = useState(0);
     const contentElements = useRef([])
-    const info = children[0].props.children;
-    const contents = children.slice(1,-1).map((line)=>line.props.children);
-    const end = children[children.length - 1].props.children;
-    useEffect(() => {
-
+    const expData = children[0].props.children
+    const codeData = children[1].props.children
+    const memoryData = children[2].props.children
+    const info = expData[0].props.children;
+    const contents = expData.slice(1,-1).map((line)=>line.props.children);
+    const end = expData[expData.length - 1].props.children;
+        useEffect(() => {
         const yLocs = contentElements.current.map((el)=>{
             if (window.innerWidth <= 768){
                 const innerHeight = window.innerHeight / 2;
@@ -129,6 +132,7 @@ const Index = ({children}) => {
                 </HeaderFooter>
                 <Content>
                     {contents.map((line, index) => {
+                        
                         return <ContentLine ref={e => contentElements.current[index] = e} isBold={isLocation == index}>{line}</ContentLine>
                     })}
                 </Content>
@@ -141,21 +145,19 @@ const Index = ({children}) => {
                 <Code>
                     &lt;Code&gt;<br/>
                     <Inner>
-                        <CodeLine isVisible={setVisibile(0,999)} >let x;</CodeLine>
-                        <CodeLine isVisible={setVisibile(2,999)} >x = "aaa";</CodeLine>
-                        <CodeLine isVisible={setVisibile(5,999)} >x = "bbb";</CodeLine>
-                        <CodeLine isVisible={setVisibile(7,999)} >y = "bbb";</CodeLine>
+                        {codeData.map(data => {
+                            const [a, b] = data.props.isVisible;
+                            return <CodeLine isVisible={setVisibile(a, b)}>{data.props.children}</CodeLine>;
+                        })}
                     </Inner>
                 </Code>
                 <Memory>
                     &lt;Memory&gt;<br/>
                     <Inner>
-                        <CodeLine isVisible={setVisibile(1,3)} > @1001 : x → </CodeLine>
-                        <CodeLine isVisible={setVisibile(4,6)} > @1001 : x → @5001  </CodeLine>
-                        <CodeLine isVisible={setVisibile(6,999)} > @1001 : x → @5002  </CodeLine>
-                        <CodeLine isVisible={setVisibile(8,999)} > @1002 : y → @5002  </CodeLine>
-                        <CodeLine isVisible={setVisibile(3,999)} > @5001 : "aaa" </CodeLine>
-                        <CodeLine isVisible={setVisibile(6,999)} > @5002 : "bbb" </CodeLine>
+                        {memoryData.map(data => {
+                            const [a, b] = data.props.isVisible;
+                            return <CodeLine isVisible={setVisibile(a, b)}>{data.props.children}</CodeLine>;
+                        })}
                     </Inner>
                 </Memory>
             </ShowElement>
