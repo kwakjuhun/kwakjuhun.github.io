@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-post-list-js",
+    "path": "/games",
+    "result": {"data":{"site":{"siteMetadata":{"title":"k-Blog"}},"allMdx":{"edges":[{"node":{"slug":"games/2048/","frontmatter":{"title":"2048","category":"games","date":"2022-05-30"},"excerpt":""}}]}},"pageContext":{"category":"games"}},
+    "staticQueryHashes": ["4075554628","63159454"]}
